@@ -1,0 +1,12 @@
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\bin\Debug\net8.0\Triconex_Builder.deps.json
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\bin\Debug\net8.0\Triconex_Builder.dll
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\bin\Debug\net8.0\Triconex_Builder.pdb
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.csproj.AssemblyReference.cache
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.AssemblyInfoInputs.cache
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.AssemblyInfo.cs
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.csproj.CoreCompileInputs.cache
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.dll
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\refint\Triconex_Builder.dll
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\Triconex_Builder.pdb
+C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Builder\obj\Debug\net8.0\ref\Triconex_Builder.dll
