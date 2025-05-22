@@ -1,92 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Transactions;
+﻿using System.Text.RegularExpressions;
 
-namespace Triconex.Models
+namespace TriconexMigration.Application.Models;
+
+public interface IInstruction
 {
-    public interface IInstruction
+    public string? Operator { get; }
+    public Address? Address { get; }
+    public IInstruction GetInstraction(string statement);
+}
+
+
+public class Address
+{
+    public string? Content { get; set; }
+    public string? MemoryArea { get; set; }
+    public string? Value { get; set; }
+}
+
+
+public class BitLogicInstruction : IInstruction
+{
+    public string? Operator { get; private set; }
+    public Address? Address { get; private set; }
+    public IInstruction GetInstraction(string statement)
     {
-        public string? Operator { get; }   
-        public Address? Address { get; }      
-        public IInstruction GetInstraction(string statement);
-    }
-
-
-    public class Address
-    {
-        public string? Content { get; set; }
-        public string? MemoryArea { get; set; }  
-        public string? Value { get; set; }
-    }
-
-
-    public class BitLogicInstruction : IInstruction
-    {
-        public string? Operator { get; private set; }
-        public Address? Address { get; private set; } 
-        public IInstruction GetInstraction(string statement)
+        var instractionAddress = statement.Split(' ')
+                                      .Where(x => !string.IsNullOrWhiteSpace(x) && x != ";")
+                                      .ToList();
+        var op = new BitLogicInstruction
         {
-            var InstractionAddress = Regex.Match(statement.Trim(), @"\b(?!A\b|AN\b|O\b|ON\b|X\b|XN\b|R\b)\w+\s*\d*\.*\d*").Value;
-            return new BitLogicInstruction  
+            Operator = instractionAddress[0],
+            Address = new Address
             {
-                Operator = Regex.Match(statement.Trim(), @"\S+").Value,
-                Address = new Address
-                {
-                    Content = InstractionAddress,
-                    MemoryArea = Regex.Match(InstractionAddress.Trim(), @"^\w+").Value,
-                    Value = Regex.Match(InstractionAddress.Trim(), @"\d+\.\d+").Value,
-                }
-            };
-        }
+                Content = string.Join("     ", instractionAddress.Skip(1).Where(x => !string.IsNullOrWhiteSpace(x))).Replace(";", "").Replace("#", ""),
+                MemoryArea = instractionAddress.Count > 1 && !string.IsNullOrWhiteSpace(instractionAddress[1]) ? instractionAddress[1].Replace(";", "").Replace("#", "") : "",
+                Value = instractionAddress.Count > 2 && !string.IsNullOrWhiteSpace(instractionAddress[2]) ? instractionAddress[2].Replace(";", "").Replace("#", "") : "",
+            }
+        };
+        return op;
     }
+}
 
-    public class LoadAndTransferInstruction : IInstruction
+public class LoadAndTransferInstruction : IInstruction
+{
+    public string? Operator { get; private set; }
+    public Address? Address { get; private set; }
+
+    public IInstruction GetInstraction(string statement)
     {
-        public string? Operator { get; private set; }
-        public Address? Address { get; private set; }
-
-        public IInstruction GetInstraction(string statement)
+        var instractionAddress = statement.Split(' ')
+                                      .Where(x => !string.IsNullOrWhiteSpace(x) && x != ";")
+                                      .ToList();
+        var op = new LoadAndTransferInstruction
         {
-            var InstractionAddress = Regex.Match(statement.Trim(), @"\b(?!A\b|AN\b|O\b|ON\b|X\b|XN\b|R\b)\w+\s*\d*\.*\d*").Value;
-
-            return new LoadAndTransferInstruction
+            Operator = instractionAddress[0],
+            Address = new Address
             {
-                Operator = Regex.Match(statement.Trim(), @"\S+").Value,
-                Address = new Address
-                {
-                    Content = InstractionAddress,
-                    MemoryArea = Regex.Match(InstractionAddress.Trim(), @"^\w+").Value,
-                    Value = Regex.Match(InstractionAddress.Trim(), @"\d+\.\d+").Value,
-                }
-            };
-        }
+                Content = string.Join("     ", instractionAddress.Skip(1).Where(x => !string.IsNullOrWhiteSpace(x))).Replace(";", ""),
+                MemoryArea = instractionAddress.Count > 1 && !string.IsNullOrWhiteSpace(instractionAddress[1]) ? instractionAddress[1].Replace(";", "") : "",
+                Value = instractionAddress.Count > 2 && !string.IsNullOrWhiteSpace(instractionAddress[2]) ? instractionAddress[2].Replace(";", "") : "",
+            }
+        };
+        return op;
     }
+}
 
-    public class XInstruction : IInstruction
+public class XInstruction : IInstruction
+{
+    public string? Operator { get; private set; }
+    public Address? Address { get; private set; }
+
+    public IInstruction GetInstraction(string statement)
     {
-        public string? Operator { get; private set; }
-        public Address? Address { get; private set; }
+        var InstractionAddress = Regex.Match(statement.Trim(), @"\b(?!A\b|AN\b|O\b|ON\b|X\b|XN\b|R\b)\w+\s*\d*\.*\d*").Value;
 
-        public IInstruction GetInstraction(string statement)
+        return new XInstruction
         {
-            var InstractionAddress = Regex.Match(statement.Trim(), @"\b(?!A\b|AN\b|O\b|ON\b|X\b|XN\b|R\b)\w+\s*\d*\.*\d*").Value;
-
-            return new XInstruction
+            Operator = Regex.Match(statement.Trim(), @"\S+").Value,
+            Address = new Address
             {
-                Operator = Regex.Match(statement.Trim(), @"\S+").Value,
-                Address = new Address
-                {
-                    Content = InstractionAddress,
-                    MemoryArea = Regex.Match(InstractionAddress.Trim(), @"^\w+").Value,
-                    Value = Regex.Match(InstractionAddress.Trim(), @"\d+\.\d+").Value,
-                }
-            };
-        }
+                Content = InstractionAddress,
+                MemoryArea = Regex.Match(InstractionAddress.Trim(), @"^\w+").Value,
+                Value = Regex.Match(InstractionAddress.Trim(), @"\d+\.\d+").Value,
+            }
+        };
     }
 }
 

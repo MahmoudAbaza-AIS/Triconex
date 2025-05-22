@@ -27,9 +27,9 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="40"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
-            <Image Grid.Column="1" Source="C:\Projects\GitHub\Triconex_Migration\Triconex_Migration\Triconex_Migration\icon\logoImage2.png" Width="110"  />
-            <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="Triconex Migration" Foreground="#FF3CBF3C" FontSize="18" FontWeight="Bold" FontFamily="Arial"></TextBlock>
+
+                <Image x:Name="logoImage" Grid.Column="1" Width="110" />
+                <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="Triconex Migration" Foreground="#FF3CBF3C" FontSize="18" FontWeight="Bold" FontFamily="Arial"></TextBlock>
             </Grid>
         </Border>
         <Border Background="#FF3CBF3C" Grid.Row="2"></Border>
@@ -50,7 +50,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                    <Button Name="btnOpenFile" Content="Select File" Width="90" Click="btnOpenFile_Click"/>
+                    <Button Name="btnOpenFile" Content="Select File" Width="90" Click="BtnOpenFile_Click"/>
                     <TextBox Name="txtFilePath" Width="260" IsReadOnly="True" Height="30"/>
                 </StackPanel>
 
@@ -60,8 +60,7 @@
                 </StackPanel>
             </Grid>
         </Grid>
-
-
+       
         <Border Background="#E7E6E6" Grid.Row="4">
             <Grid>
                 <Grid.ColumnDefinitions>

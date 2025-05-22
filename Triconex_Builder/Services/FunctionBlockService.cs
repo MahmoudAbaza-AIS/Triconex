@@ -1,100 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Triconex.DTOS;
-using Triconex.Interfaces;
-using Triconex.Models;
-using Triconex.Parser;
-using Triconex.Services;
+﻿using System.Text.RegularExpressions;
+using TriconexMigration.Application.DTOS;
+using TriconexMigration.Application.Models;
+using TriconexMigration.Application.Utilities;
 
-namespace Triconex.Services
+namespace TriconexMigration.Application.Services;
+
+public class FunctionBlockService(NetworkService networkService)
 {
-    public static class FunctionBlockService
+    private readonly NetworkService networkService = networkService;
+
+    public List<ResultParserDTO> GetFinalParser(List<FunctionBlock> functionBlocks)
     {
-        public static List<ResultParserDTO> GetFinalParser(List<FunctionBlock> functionBlocks)
+        List<ResultParserDTO> ResultList = new();
+        foreach (var function in functionBlocks)
         {
-            List<ResultParserDTO> ResultList = new List<ResultParserDTO>();
-            foreach (var function in functionBlocks)
-            {
-                var result = NetworkService.GetFinalParser(function.Network, function.Name);
-                ResultList.AddRange(result);
-            }
-
-            return ResultList;
-        }
-        
-        public static List<FunctionBlock> GetFunctionBlockDetails(List<string> data)
-        {
-            List<FunctionBlock> functionBlockList = new List<FunctionBlock>();
-            foreach (var function in GetFunctionBlocksBoundaries(data))
-            {
-                FunctionBlock functionBlock = new FunctionBlock()
-                {
-                    Name = function[0],
-                    Version = function.Where(e => e.ToUpper().Contains("VERSION")).FirstOrDefault(),
-                    Inputs = GetIOParams(function, @"^IN\d+.*$"),
-                    Outputs = GetIOParams(function, @"^OUT\d+.*$"),
-                    LocalVariables = GetIOParams(function, @"^STAT\d+.*$"),
-                    Network = NetworkService.GetNetworksDetails(function),
-                };
-
-                functionBlockList.Add(functionBlock);
-            }
-
-            return functionBlockList;
+            var result = networkService.GetFinalParser(function.Network, function.Name);
+            ResultList.AddRange(result);
         }
 
-        #region Private Utilities
-        private static List<List<string>> GetFunctionBlocksBoundaries(List<string> data)
+        return ResultList;
+    }
+
+    public static List<FunctionBlock> GetFunctionBlockDetails(List<string> data)
+    {
+        List<FunctionBlock> functionBlockList = new();
+        foreach (var function in ParsingUtilities.GetFunctionBlocksBoundaries(data))
         {
-            List<List<string>> nestedArrays = new List<List<string>>();
-            List<string> currentArray = null;
-
-            foreach (var item in data)
+            FunctionBlock functionBlock = new()
             {
-                if (item.Trim().StartsWith("FUNCTION_BLOCK"))
-                {
-                    currentArray = new List<string> { item };
-                }
-                else if (item.Trim().StartsWith("END_FUNCTION_BLOCK"))
-                {
-                    currentArray?.Add(item);
-                    if (currentArray != null)
-                    {
-                        nestedArrays.Add(currentArray);
-                    }
-                }
-                else
-                {
-                    if (item.Trim().Split(" ")?[0] == "FUNCTION") break;
-                    currentArray?.Add(item);
-                }
-            }
+                Name = function[0],
+                Version = function.Where(e => e.ToUpper().Contains("VERSION")).FirstOrDefault(),
+                Inputs = ParsingUtilities.GetIOParams(function, @"^IN\d+.*$"),
+                Outputs = ParsingUtilities.GetIOParams(function, @"^OUT\d+.*$"),
+                LocalVariables = ParsingUtilities.GetIOParams(function, @"^STAT\d+.*$"),
+                Network = NetworkService.GetNetworksDetails(function),
+            };
 
-            return nestedArrays;
+            functionBlockList.Add(functionBlock);
         }
 
-        private static List<FunctionBlockAttribute> GetIOParams(List<string> data, string regex)
-        {
-            List<FunctionBlockAttribute> FB = new List<FunctionBlockAttribute>();
-            var DataList = data.Where(e => new Regex(regex).IsMatch(e.Trim())).ToList();
-            foreach (var item in DataList)
-            {
-                FB.Add(new FunctionBlockAttribute
-                {
-                    Name = Regex.Match(item.Trim(), @"^([^:]+)").Value,
-                    DataType = Regex.Match(item.Trim(), @"(?<=:)[^;]+").Value,
-                    InitialValue = "N/A"
-                });
-            }
-
-            return FB;
-        }
-
-        #endregion
+        return functionBlockList;
     }
 }
 

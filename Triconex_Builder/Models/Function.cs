@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TriconexMigration.Application.Models;
 
-namespace Triconex.Models
+public class Function
 {
-    public class Function
-    {
-        public string Name { get; set; }
-        public string Version { get; set; }
-        public List<Network> Network { get; set; } = new List<Network>();
-    }
+    public required string Name { get; set; }
+    public required string Version { get; set; }
+    public string? Reference { get; set; }
+    public List<Network> Network { get; set; } = [];
 }

@@ -1,4 +1,4 @@
-﻿using Triconex.Models;
+﻿using TriconexMigration.Application.Models;
 
 namespace Triconex.Interfaces
 {

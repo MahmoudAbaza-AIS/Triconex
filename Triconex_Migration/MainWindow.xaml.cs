@@ -1,48 +1,60 @@
 ﻿using Microsoft.Win32;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Triconex.Models;
-using Triconex.Services;
+using TriconexMigration.Application.Models;
+using TriconexMigration.Application.Services;
 
-namespace Triconex_Migration
+namespace Triconex_Migration;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    private readonly FileService fileService;
+
+    public MainWindow(FileService fileService)
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        this.fileService = fileService;
+        InitializeComponent();
+        SetImageSource();
+    }
 
-        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+    private void BtnOpenFile_Click(object sender, RoutedEventArgs e)
+    {
+        OpenFileDialog openFileDialog = new()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "All files (*.*)|*.*";
-            if (openFileDialog.ShowDialog() == true)
+            Filter = "All files (*.*)|*.*"
+        };
+        if (openFileDialog.ShowDialog() == true)
+        {
+            txtFilePath.Text = openFileDialog.FileName;
+        }
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var FileData = fileService.GetFile(txtFilePath.Text);
+            if (FileData.Count != 0)
             {
-                txtFilePath.Text = openFileDialog.FileName;
+                ProgramBuilder programBuilder = ProgramBuilder.GetProgramBuilder(FileData, txtFilePath.Text);
+                fileService.CreateFile(programBuilder);
             }
         }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        catch (Exception ex)
         {
-            var FileData = FileService.GetFile(txtFilePath.Text);
-            if (FileData.Any())
-            {
-                ProgramBuilder programBuilder = new ProgramBuilder().GetProgramBuilder(FileData, txtFilePath.Text);
-                FileService.CreateFile(programBuilder);
-            }
+            MessageBox.Show($"Error Parsing File: {ex.Message}");
+        }
+    }
+
+    private void SetImageSource()
+    {
+        try
+        {
+            logoImage.Source = new BitmapImage(new Uri("pack://application:,,,/icon/logo.png", UriKind.Absolute));
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error loading image: {ex.Message}");
         }
     }
 }

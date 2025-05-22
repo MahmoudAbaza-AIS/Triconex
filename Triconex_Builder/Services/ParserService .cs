@@ -1,52 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Triconex.Models;
+﻿using TriconexMigration.Application.Models;
 
-namespace Triconex.Services
+namespace TriconexMigration.Application.Services;
+public static class ParserService
 {
-    public static class ParserService
+    public static string GetBitLogicOperator(string statement)
     {
-        public static string GetBitLogicOperator(string statement)  
+        return statement switch
         {
-            switch (statement)
+            "A" or "AN" => "AND (",
+            "O" or "ON" => "OR (",
+            "X" or "XN" => "Exclusive (",
+            "(" or ")" => "",
+            "A(" => "AND (",
+            _ => " , ",
+        };
+    }
+
+    public static List<List<IInstruction>> SplitInstructions(List<IInstruction> instructions)
+    {
+        List<List<IInstruction>> multiList = [];
+        int indexOfLoad = -1;
+
+        for (int i = 0; i < instructions.Count; i++)
+        {
+            if (instructions[i].Operator == "=")
             {
-                case "A":
-                case "AN":
-                    return "AND (";
-                case "O":
-                case "ON":
-                    return "OR (";
-                case "X":
-                case "XN":
-                    return "Exclusive (";   
-                case "(":
-                case ")":
-                    return "";
-                case "A(":
-                    return "AND (";
-                default:
-                    return " , ";
+                multiList.Add(instructions.GetRange(0, i + 1));
+                instructions.RemoveRange(0, i + 1);
+                i = 0;
             }
         }
 
-        public static List<List<IInstruction>> SplitInstructions(List<IInstruction> instructions)
+        for (int i = 0; i < multiList.Count; i++)
         {
-            List<List<IInstruction>> multiList = new List<List<IInstruction>>();
-
-            for (int i = 0; i < instructions.Count(); i++)
+            if (multiList[i].Any(e => e.Address?.MemoryArea == "L" && e.Operator == "="))
             {
-                if (instructions[i].Operator == "=")
+                indexOfLoad = i;
+                break;
+            }
+        }
+
+        if (indexOfLoad >= 0)
+        {
+            var itemsToProcess = multiList.Select(list => list.ToList()).ToList();
+
+            foreach (var item in itemsToProcess)
+            {
+                List<(int index, IInstruction instruction)> modificationsToApply = [];
+                int originalCount = item.Count;
+
+                for (int i = 0; i < originalCount; i++)
                 {
-                    multiList.Add(instructions.GetRange(0, i + 1));
-                    instructions.RemoveRange(0, i + 1);
-                    i = 0;
+                    if (item[i].Address?.MemoryArea == "L" && item[i].Operator != "=")
+                    {
+                        if (multiList[indexOfLoad].Count == 2)
+                        {
+                            item[i].Address.Content = multiList[indexOfLoad][0].Address?.Content;
+                            item[i].Address.MemoryArea = multiList[indexOfLoad][0].Address?.MemoryArea;
+                            item[i].Address.Value = multiList[indexOfLoad][0].Address?.Value;
+                        }
+                        else if (multiList[indexOfLoad].Count > 2)
+                        {
+                            var instructionsToAdd = multiList[indexOfLoad]
+                                .Where(x => x.Address?.MemoryArea != "L" && x.Operator != "=")
+                                .ToList();
+
+                            for (int j = 0; j < instructionsToAdd.Count; j++)
+                            {
+                                modificationsToApply.Add((j, instructionsToAdd[j]));
+                            }
+                        }
+                    }
+                }
+
+                foreach (var (index, instruction) in modificationsToApply.OrderBy(x => x.index))
+                {
+                    item.Insert(index, instruction);
+                }
+
+                for (int i = 0; i < itemsToProcess.Count; i++)
+                {
+                    item.RemoveAll(instruction => instruction.Address?.MemoryArea == "L");
                 }
             }
+            multiList = itemsToProcess;
 
-            return multiList;
+            multiList.Remove(multiList[indexOfLoad]);
         }
+        return multiList;
     }
 }

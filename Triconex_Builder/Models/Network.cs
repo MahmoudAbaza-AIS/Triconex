@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TriconexMigration.Application.Models;
 
-namespace Triconex.Models
+public class Network
 {
-    public class Network
-    {
-        public int Number { get; set; }
-        public List<IInstruction> Instructions { get; set; }
-    }
+    public int Number { get; set; }
+    public List<IInstruction>? Instructions { get; set; }
 }

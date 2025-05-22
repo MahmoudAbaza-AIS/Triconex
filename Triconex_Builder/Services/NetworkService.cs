@@ -1,156 +1,53 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using Triconex.DTOS;
+﻿using Microsoft.Extensions.Logging;
 using Triconex.Interfaces;
-using Triconex.Models;
-using Triconex.Parser;
+using TriconexMigration.Application.DTOS;
+using TriconexMigration.Application.Interfaces;
+using TriconexMigration.Application.Models;
+using TriconexMigration.Application.Parser;
+using TriconexMigration.Application.Utilities;
 
+namespace TriconexMigration.Application.Services;
 
-namespace Triconex.Services
+public class NetworkService(IInstructionParserFactory instructionParserFactory, IInstructionCommandFactory instructionCommandFactory)
 {
-    public static class NetworkService
+    private readonly IInstructionParserFactory _instructionParserFactory = instructionParserFactory;
+    private readonly IInstructionCommandFactory _instructionCommandFactory = instructionCommandFactory;
+
+    public List<ResultParserDTO> GetFinalParser(List<Network> networks, string functionName)
     {
-        public static List<ResultParserDTO> GetFinalParser(List<Network> Network, string FunctionName)
+        var resultList = new List<ResultParserDTO>();
+
+        foreach (var network in networks)
         {
-            List<ResultParserDTO> ResultList = new List<ResultParserDTO>();
-            foreach (var network in Network)
-            {
-                IInstructionParser instruction;
-                var sampleInstruction = network.Instructions.Any(e => !(e.Address.MemoryArea.ToUpper().Contains("CALL")));
-
-                if (sampleInstruction)
-                {
-                    instruction = new SampleLogicParser();
-                    var NumOfOutput = network.Instructions.Count(e => e.Operator == "=");
-                    if (NumOfOutput > 1)
-                    {
-                        var InstructionsList = ParserService.SplitInstructions(network.Instructions);
-                        foreach (var Instruction in InstructionsList)
-                        {
-                            var result = instruction.InstructionParser(Instruction);
-                            ResultList.Add(new ResultParserDTO
-                            {
-                                Logic = result,
-                                NetworkNumber = network.Number,
-                                FunctionBlock = FunctionName ?? ""
-                            });
-                        }
-                    }
-                    else
-                    {
-                        var result = instruction.InstructionParser(network.Instructions);
-                        ResultList.Add(new ResultParserDTO
-                        {
-                            Logic = result,
-                            NetworkNumber = network.Number,
-                            FunctionBlock = FunctionName ?? ""
-                        });
-                    }
-                }
-                else { }
-            }
-
-            return ResultList;
-        }
-        public static List<Network> GetNetworksDetails(List<string> function)   
-        {
-            List<Network> NetworkList = new List<Network>();
-            var networkBlocks = GetNetworksBoundaries(function);
-            int networkNum = 1;
-
-            foreach (var network in networkBlocks)
-            {
-                var InstructionList = GetInstructionsType(network);
-                NetworkList.Add(new Network
-                {
-                    Number = networkNum++,
-                    Instructions = InstructionList,
-                });
-            }
-
-            return NetworkList;
+            IInstructionParser instruction = _instructionParserFactory.Create(network);
+            IInstructionCommand command = _instructionCommandFactory.GetCommand(instruction);
+            command.Execute(resultList, network, instruction, functionName);
         }
 
-
-        #region Private Utilities
-
-        private static List<List<string>> GetNetworksBoundaries(List<string> data)
+        resultList.ForEach(result =>
         {
-            List<List<string>> nestedArrays = new List<List<string>>();
-            List<string> currentArray = null;
+            if (result.Logic.Contains(".")) result.Logic = result.Logic.Replace(".", "_");
+            result.Logic = ComplexEquationParser.Execute(result.Logic);
+        });
 
-            #region -- Track Standalone Network --
-            var IsStandaloneNetwork = !(data[0].ToUpper().Trim().StartsWith("FUNCTION"));
-            if (IsStandaloneNetwork) data.Add("END_NETWORK");
-            #endregion 
+        return resultList;
+    }
 
-            foreach (var item in data)
-            {
-                if (item.Trim().StartsWith("TITLE"))
-                {
-                    currentArray = new List<string>();
-                }
-                else if (
-                            item.Trim().StartsWith("NETWORK") ||
-                            item.Trim().StartsWith("END_FUNCTION_BLOCK") ||
-                            item.Trim().StartsWith("END_FUNCTION") ||
-                            item.Trim().StartsWith("END_NETWORK")
-                        )
-                {
-                    if (currentArray != null)
-                    {
-                        nestedArrays.Add(currentArray);
-                    }
-                }
-                else
-                {
-                    currentArray?.Add(item);
-                }
-            }
+    public static List<Network> GetNetworksDetails(List<string> function)
+    {
+        List<Network> NetworkList = [];
+        var networkBlocks = NetworkUtilities.GetNetworksBoundaries(function);
+        int networkNum = 1;
 
-            return nestedArrays;
-        }
-
-        private static List<IInstruction> GetInstructionsType(List<string> statements)
+        foreach (var network in networkBlocks)
         {
-            IInstruction instruction;
-            List<IInstruction> InstructionList = new List<IInstruction>();
-            foreach (var statement in statements)
+            var InstructionList = NetworkUtilities.GetInstructionsType(network);
+            NetworkList.Add(new Network
             {
-                if (IsBitLogicType(statement))
-                {
-                    instruction = new BitLogicInstruction();
-                    var ins = instruction.GetInstraction(statement);
-                    InstructionList.Add(ins);
-                }
-                else if (IsLoadAndTransferType(statement))
-                {
-                    instruction = new LoadAndTransferInstruction();
-                    var ins = instruction.GetInstraction(statement);
-                    InstructionList.Add(ins);
-                }
-                else if (IsXInstructionType(statement))
-                {
-                    instruction = new XInstruction();
-                    var ins = instruction.GetInstraction(statement);
-                    InstructionList.Add(ins);
-                }
-            }
-
-            return InstructionList;
+                Number = networkNum++,
+                Instructions = InstructionList,
+            });
         }
-
-        #endregion
-
-        #region Network Valdation
-        private static bool IsBitLogicType(string statement)
-                => new Regex(@"^(AN|A|R|=)").IsMatch(statement.Trim());
-
-        private static bool IsLoadAndTransferType(string statement)
-                => new Regex(@"").IsMatch(statement.Trim());
-
-        private static bool IsXInstructionType(string statement)
-                => new Regex(@"").IsMatch(statement.Trim());
-        #endregion
+        return NetworkList;
     }
 }

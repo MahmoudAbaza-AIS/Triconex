@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TriconexMigration.Application.Models;
 
-namespace Triconex.Models
+public class FunctionBlockAttribute
 {
-    public class FunctionBlockAttribute
-    {
-        public string Name { get; set; }
-        public string DataType { get; set; }
-        public string InitialValue { get; set; }
-    }
+    public required string Name { get; set; }
+    public required string DataType { get; set; }
+    public required string InitialValue { get; set; }
 }
