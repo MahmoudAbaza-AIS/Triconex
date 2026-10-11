@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using TriconexMigration.Application.Utilities;
 
 namespace TriconexMigration.Application.Models;
 
@@ -29,7 +30,7 @@ public class BitLogicInstruction : IInstruction
                                       .ToList();
         var op = new BitLogicInstruction
         {
-            Operator = instractionAddress[0],
+            Operator = ParsingUtilities.NormalizeAwlOperator(instractionAddress[0]),
             Address = new Address
             {
                 Content = string.Join("     ", instractionAddress.Skip(1).Where(x => !string.IsNullOrWhiteSpace(x))).Replace(";", "").Replace("#", ""),
@@ -51,9 +52,11 @@ public class LoadAndTransferInstruction : IInstruction
         var instractionAddress = statement.Split(' ')
                                       .Where(x => !string.IsNullOrWhiteSpace(x) && x != ";")
                                       .ToList();
+        if (instractionAddress.Count > 1 && instractionAddress[0].EndsWith(':'))
+            instractionAddress.RemoveAt(0);
         var op = new LoadAndTransferInstruction
         {
-            Operator = instractionAddress[0],
+            Operator = ParsingUtilities.NormalizeAwlOperator(instractionAddress[0]),
             Address = new Address
             {
                 Content = string.Join("     ", instractionAddress.Skip(1).Where(x => !string.IsNullOrWhiteSpace(x))).Replace(";", ""),
@@ -76,7 +79,7 @@ public class XInstruction : IInstruction
 
         return new XInstruction
         {
-            Operator = Regex.Match(statement.Trim(), @"\S+").Value,
+            Operator = ParsingUtilities.NormalizeAwlOperator(Regex.Match(statement.Trim(), @"\S+").Value),
             Address = new Address
             {
                 Content = InstractionAddress,

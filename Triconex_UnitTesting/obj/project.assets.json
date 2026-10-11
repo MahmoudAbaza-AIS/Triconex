@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net8.0": {
       "ClosedXML/0.104.1": {
@@ -2219,23 +2219,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sesa652755\\.nuget\\packages\\": {},
+    "C:\\Users\\SESA652755\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sesa652755\\Documents\\Projects\\SE\\Triconex\\TriconexMigration\\Triconex_Migration\\Triconex_UnitTesting\\TriconexMigration.UnitTesting.csproj",
+      "projectUniqueName": "C:\\Users\\SESA652755\\Documents\\Projects\\SE\\Triconex\\Triconex_Migration\\Triconex_UnitTesting\\TriconexMigration.UnitTesting.csproj",
       "projectName": "TriconexMigration.UnitTesting",
-      "projectPath": "C:\\Users\\sesa652755\\Documents\\Projects\\SE\\Triconex\\TriconexMigration\\Triconex_Migration\\Triconex_UnitTesting\\TriconexMigration.UnitTesting.csproj",
-      "packagesPath": "C:\\Users\\sesa652755\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sesa652755\\Documents\\Projects\\SE\\Triconex\\TriconexMigration\\Triconex_Migration\\Triconex_UnitTesting\\obj\\",
+      "projectPath": "C:\\Users\\SESA652755\\Documents\\Projects\\SE\\Triconex\\Triconex_Migration\\Triconex_UnitTesting\\TriconexMigration.UnitTesting.csproj",
+      "packagesPath": "C:\\Users\\SESA652755\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SESA652755\\Documents\\Projects\\SE\\Triconex\\Triconex_Migration\\Triconex_UnitTesting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\sesa652755\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SESA652755\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2244,15 +2244,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\sesa652755\\Documents\\Projects\\SE\\Triconex\\TriconexMigration\\Triconex_Migration\\Triconex_Builder\\TriconexMigration.Application.csproj": {
-              "projectPath": "C:\\Users\\sesa652755\\Documents\\Projects\\SE\\Triconex\\TriconexMigration\\Triconex_Migration\\Triconex_Builder\\TriconexMigration.Application.csproj"
+            "C:\\Users\\SESA652755\\Documents\\Projects\\SE\\Triconex\\Triconex_Migration\\Triconex_Builder\\TriconexMigration.Application.csproj": {
+              "projectPath": "C:\\Users\\SESA652755\\Documents\\Projects\\SE\\Triconex\\Triconex_Migration\\Triconex_Builder\\TriconexMigration.Application.csproj"
             }
           }
         }
@@ -2266,10 +2266,12 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "MSTest.TestAdapter": {
@@ -2323,7 +2325,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

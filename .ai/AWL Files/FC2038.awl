@@ -1,0 +1,1137 @@
+      SET   
+      SAVE  
+      =     L      0.1
+      L     DB79.DBD   30
+      OPN   DI   401
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  158.1
+      OPN   DI   236
+      L     DID  116
+      T     DB400.DBD   10
+      L     DIW  120
+      T     DBW   14
+      L     DID   44
+      T     DBD   22
+      L     DIW   48
+      T     DBW   26
+      OPN   DI    38
+      L     DID   30
+      T     DBD   46
+      L     DIW   34
+      T     DBW   50
+      OPN   DI   401
+      L     DID   30
+      T     DBD   82
+      L     DIW   34
+      T     DBW   86
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   378
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  158.0
+      A     DBX  120.0
+      =     Q     64.1
+      OPN   DI   236
+      L     DID  116
+      T     DB408.DBD   10
+      L     DIW  120
+      T     DBW   14
+      L     DID   44
+      T     DBD   22
+      L     DIW   48
+      T     DBW   26
+      OPN   DI    27
+      L     DID   30
+      T     DBD   46
+      L     DIW   34
+      T     DBW   50
+      OPN   DI   401
+      L     DID   30
+      T     DBD   82
+      L     DIW   34
+      T     DBW   86
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   378
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  159.0
+      A     DBX  120.0
+      =     Q     64.0
+      OPN   DI   356
+      L     DID  122
+      T     DB395.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   360
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  157.3
+      L     DB360.DBD  122
+      OPN   DI   389
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB367.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  156.5
+      OPN   DI   356
+      L     DID  122
+      T     DB388.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   367
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  156.4
+      L     DB395.DBD   30
+      OPN   DI   394
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      L     DB389.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      L     DB388.DBD   30
+      T     DID   18
+      L     DBW   34
+      T     DIW   22
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  157.2
+      OPN   DI   364
+      L     DID  122
+      T     DB391.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   359
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  156.7
+      L     DB359.DBD  122
+      OPN   DI   390
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB365.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  156.6
+      OPN   DI   364
+      L     DID  122
+      T     DB393.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   365
+      L     DID   30
+      T     DBD   12
+      L     DIW   34
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  157.1
+      L     DB391.DBD   30
+      OPN   DI   396
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      L     DB390.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      L     DB393.DBD   30
+      T     DID   18
+      L     DBW   34
+      T     DIW   22
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  157.4
+      OPN   DI   394
+      L     DID   30
+      T     DB392.DBD    6
+      L     DIW   34
+      T     DBW   10
+      OPN   DI   396
+      L     DID   30
+      T     DBD   18
+      L     DIW   34
+      T     DBW   22
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  157.0
+      L     DB354.DBD  122
+      OPN   DI   386
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB347.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  156.2
+      OPN   DI   347
+      L     DID  122
+      T     DB380.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   342
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  155.4
+      L     DB354.DBD  122
+      OPN   DI   379
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB342.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  155.3
+      OPN   DI   386
+      L     DID   30
+      T     DB385.DBD    6
+      L     DIW   34
+      T     DBW   10
+      OPN   DI   380
+      L     DID   30
+      T     DBD   12
+      L     DIW   34
+      T     DBW   16
+      OPN   DI   379
+      L     DID   30
+      T     DBD   18
+      L     DIW   34
+      T     DBW   22
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  156.1
+      L     DB353.DBD  122
+      OPN   DI   382
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB348.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  155.6
+      OPN   DI   348
+      L     DID  122
+      T     DB381.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   355
+      L     DID   30
+      T     DBD   12
+      L     DIW   34
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  155.5
+      L     DB353.DBD  122
+      OPN   DI   384
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB355.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  156.0
+      OPN   DI   382
+      L     DID   30
+      T     DB387.DBD    6
+      L     DIW   34
+      T     DBW   10
+      OPN   DI   381
+      L     DID   30
+      T     DBD   12
+      L     DIW   34
+      T     DBW   16
+      OPN   DI   384
+      L     DID   30
+      T     DBD   18
+      L     DIW   34
+      T     DBW   22
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  156.3
+      L     DB385.DBD   30
+      OPN   DI   383
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      L     DB387.DBD   30
+      T     DID   18
+      L     DBW   34
+      T     DIW   22
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  155.7
+      OPN   DI    18
+      L     DID  122
+      T     DB371.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI    60
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  154.3
+      L     DB60.DBD  122
+      OPN   DI   374
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB58.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  154.6
+      OPN   DI    18
+      L     DID  122
+      T     DB376.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI    58
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  155.0
+      L     DB371.DBD   30
+      OPN   DI   373
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      L     DB374.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      L     DB376.DBD   30
+      T     DID   18
+      L     DBW   34
+      T     DIW   22
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  154.5
+      OPN   DI   132
+      L     DID  122
+      T     DB370.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   188
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  154.2
+      L     DB188.DBD  122
+      OPN   DI   372
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB341.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   301
+      A     BR
+      =     DB47.DBX  154.4
+      OPN   DI   132
+      L     DID  122
+      T     DB375.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   341
+      L     DID   30
+      T     DBD   12
+      L     DIW   34
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   301
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  154.7
+      L     DB370.DBD   30
+      OPN   DI   378
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      L     DB372.DBD   30
+      T     DID   12
+      L     DBW   34
+      T     DIW   16
+      L     DB375.DBD   30
+      T     DID   18
+      L     DBW   34
+      T     DIW   22
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  155.2
+      OPN   DI   373
+      L     DID   30
+      T     DB377.DBD    6
+      L     DIW   34
+      T     DBW   10
+      OPN   DI   378
+      L     DID   30
+      T     DBD   18
+      L     DIW   34
+      T     DBW   22
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  155.1
+      L     DB79.DBD   30
+      OPN   DI   368
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  154.0
+      L     DID   30
+      T     DB369.DBD    6
+      L     DIW   34
+      T     DBW   10
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  154.1
+      L     DB261.DBD   44
+      OPN   DI   367
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     48.0
+      =     DIX   46.0
+      L     DB369.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  153.7
+      OPN   DI   261
+      L     DID   44
+      T     DB362.DBD   10
+      L     DIW   48
+      T     DBW   14
+      L     DID   62
+      T     DBD   22
+      L     DIW   66
+      T     DBW   26
+      A     I     48.3
+      =     DBX   46.0
+      OPN   DI   369
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  153.2
+      L     DB367.DBD  122
+      OPN   DI   361
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB362.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      L     DB357.DBD  122
+      T     DID   18
+      L     DBW  126
+      T     DIW   22
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  153.1
+      OPN   DI    64
+      L     DID   50
+      T     DB366.DBD   10
+      L     DIW   54
+      T     DBW   14
+      L     DID   68
+      T     DBD   22
+      L     DIW   72
+      T     DBW   26
+      A     I     71.4
+      =     DBX   46.0
+      OPN   DI   368
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  153.6
+      L     DB369.DBD   30
+      OPN   DI   358
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  152.6
+      OPN   DI   261
+      L     DID   44
+      T     DB360.DBD   10
+      L     DIW   48
+      T     DBW   14
+      L     DID   62
+      T     DBD   22
+      L     DIW   66
+      T     DBW   26
+      A     I     48.6
+      =     DBX   46.0
+      OPN   DI   358
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  153.0
+      L     DB261.DBD   44
+      OPN   DI   356
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     48.2
+      =     DIX   46.0
+      L     DB358.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  152.4
+      OPN   DI   261
+      L     DID   44
+      T     DB359.DBD   10
+      L     DIW   48
+      T     DBW   14
+      L     DID   62
+      T     DBD   22
+      L     DIW   66
+      T     DBW   26
+      A     I     48.5
+      =     DBX   46.0
+      OPN   DI   358
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  152.7
+      L     DB261.DBD   44
+      OPN   DI   364
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     48.1
+      =     DIX   46.0
+      L     DB358.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  153.4
+      OPN   DI   362
+      L     DID  122
+      T     DB365.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   357
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  153.5
+      L     DB261.DBD   44
+      OPN   DI   357
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     48.4
+      =     DIX   46.0
+      L     DB369.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  152.5
+      OPN   DI    79
+      L     DID   30
+      T     DB349.DBD    6
+      L     DIW   34
+      T     DBW   10
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  151.5
+      L     DBD   30
+      OPN   DI   351
+      T     DID    6
+      L     DBW   34
+      T     DIW   10
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  151.7
+      OPN   DI   240
+      L     DID   50
+      T     DB342.DBD   10
+      L     DIW   54
+      T     DBW   14
+      L     DID   68
+      T     DBD   22
+      L     DIW   72
+      T     DBW   26
+      A     I     33.4
+      =     DBX   46.0
+      OPN   DI   351
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  150.6
+      L     DB240.DBD   50
+      OPN   DI   345
+      T     DID   10
+      L     DBW   54
+      T     DIW   14
+      L     DBD   68
+      T     DID   22
+      L     DBW   72
+      T     DIW   26
+      A     I     33.7
+      =     DIX   46.0
+      L     DB351.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  151.1
+      OPN   DI   342
+      L     DID  122
+      T     DB346.DBD    6
+      L     DIW  126
+      T     DBW   10
+      OPN   DI   345
+      L     DID  122
+      T     DBD   12
+      L     DIW  126
+      T     DBW   16
+      OPN   DI   352
+      L     DID  122
+      T     DBD   18
+      L     DIW  126
+      T     DBW   22
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  151.2
+      L     DB64.DBD   44
+      OPN   DI   343
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     70.4
+      =     DIX   46.0
+      L     DB349.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  150.7
+      OPN   DI   351
+      L     DID   30
+      T     DB350.DBD    6
+      L     DIW   34
+      T     DBW   10
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   302
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  151.6
+      L     DB240.DBD   56
+      OPN   DI   347
+      T     DID   10
+      L     DBW   60
+      T     DIW   14
+      L     DBD   74
+      T     DID   22
+      L     DBW   78
+      T     DIW   26
+      A     I     34.2
+      =     DIX   46.0
+      L     DB350.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  151.3
+      OPN   DI   240
+      L     DID   50
+      T     DB354.DBD   10
+      L     DIW   54
+      T     DBW   14
+      L     DID   68
+      T     DBD   22
+      L     DIW   72
+      T     DBW   26
+      A     I     33.6
+      =     DBX   46.0
+      OPN   DI   350
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  152.2
+      L     DB240.DBD   56
+      OPN   DI   348
+      T     DID   10
+      L     DBW   60
+      T     DIW   14
+      L     DBD   74
+      T     DID   22
+      L     DBW   78
+      T     DIW   26
+      A     I     34.1
+      =     DIX   46.0
+      L     DB350.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX  151.4
+      OPN   DI   240
+      L     DID   50
+      T     DB353.DBD   10
+      L     DIW   54
+      T     DBW   14
+      L     DID   68
+      T     DBD   22
+      L     DIW   72
+      T     DBW   26
+      A     I     33.5
+      =     DBX   46.0
+      OPN   DI   350
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  152.1
+      L     DB345.DBD  122
+      OPN   DI   355
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB352.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  152.3
+      OPN   DI   240
+      L     DID   56
+      T     DB352.DBD   10
+      L     DIW   60
+      T     DBW   14
+      L     DID   74
+      T     DBD   22
+      L     DIW   78
+      T     DBW   26
+      A     I     34.0
+      =     DBX   46.0
+      OPN   DI   351
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX  152.0
+      L     DB226.DBD  122
+      OPN   DI   341
+      T     DID    6
+      L     DBW  126
+      T     DIW   10
+      L     DB340.DBD  122
+      T     DID   12
+      L     DBW  126
+      T     DIW   16
+      LAR2  P#DBX 0.0
+      UC    FB   302
+      A     BR
+      =     DB47.DBX  150.5
+      OPN   DI   240
+      L     DID   44
+      T     DB340.DBD   10
+      L     DIW   48
+      T     DBW   14
+      L     DID   62
+      T     DBD   22
+      L     DIW   66
+      T     DBW   26
+      A     I     32.4
+      =     DBX   46.0
+      OPN   DI   126
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX   97.4
+      L     DB240.DBD   44
+      OPN   DI   338
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     32.7
+      =     DIX   46.0
+      L     DB69.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX   97.2
+      OPN   DI   240
+      L     DID   56
+      T     DB249.DBD   10
+      L     DIW   60
+      T     DBW   14
+      L     DID   74
+      T     DBD   22
+      L     DIW   78
+      T     DBW   26
+      A     I     34.3
+      =     DBX   46.0
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX   90.3
+      L     DB261.DBD   44
+      OPN   DI   339
+      T     DID   10
+      L     DBW   48
+      T     DIW   14
+      L     DBD   62
+      T     DID   22
+      L     DBW   66
+      T     DIW   26
+      A     I     48.7
+      =     DIX   46.0
+      L     DB69.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX   97.3
+      OPN   DI   261
+      L     DID   50
+      T     DB248.DBD   10
+      L     DIW   54
+      T     DBW   14
+      L     DID   68
+      T     DBD   22
+      L     DIW   72
+      T     DBW   26
+      A     I     49.5
+      =     DBX   46.0
+      OPN   DI    79
+      L     DID   30
+      T     DBD   72
+      L     DIW   34
+      T     DBW   76
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   377
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX   90.0
+      L     DB240.DBD   56
+      OPN   DI   247
+      T     DID   10
+      L     DBW   60
+      T     DIW   14
+      L     DBD   74
+      T     DID   22
+      L     DBW   78
+      T     DIW   26
+      A     I     34.7
+      =     DIX   46.0
+      L     DB69.DBD   30
+      T     DID   72
+      L     DBW   34
+      T     DIW   76
+      LAR2  P#DBX 0.0
+      UC    FB   377
+      A     BR
+      =     DB47.DBX   88.0
+      LAR2  P#DBX 0.0
+      OPN   DI    19
+      UC    FB   396
+      A     BR
+      =     DBX   17.3
+      OPN   DI    29
+      L     DIW 1548
+      T     DB66.DBW   42
+      LAR2  P#DBX 0.0
+      CDB   
+      UC    FB   464
+      CDB   
+      A     BR
+      OPN   DI    47
+      =     DIX   19.2
+      L     DB29.DBW 1548
+      OPN   DI   236
+      T     DIW   42
+      LAR2  P#DBX 0.0
+      UC    FB   464
+      A     BR
+      =     DB47.DBX  118.0
+      LAR2  P#DBX 0.0
+      OPN   DI    21
+      UC    FB   397
+      A     BR
+      =     DBX   17.5
+      LAR2  P#DBX 0.0
+      OPN   DI    29
+      UC    FB   360
+      A     BR
+      =     DBX   47.6
+      A     L      0.1
+      SAVE  
+      BE    

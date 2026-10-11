@@ -13,15 +13,63 @@ public class MultiLogicParser(SimpleLogicParser slp, SetResetParser srp) : IInst
     public string InstructionParser(List<IInstruction> instructions)
     {
         List<string> instructionsBrokenDown = [];
-        bool containsS = instructions.Any(i => !string.IsNullOrWhiteSpace(i.Operator) && i.Operator.Contains('S'));
+        bool containsS = instructions.Any(i => i.Operator is "S");
         var retrun = DivideAndConquer(instructions, containsS);
         //foreach (var ret in retrun)
         //{
         //    string output = (containsS ? _setResetParser.InstructionParser(ret) : _simpleLogicParser.InstructionParser(ret));
         //    instructionsBrokenDown.Add(output);
         //}
+        bool hasLatch = instructions.Any(i => i.Operator is "S" or "R");
+        bool hasAssign = instructions.Any(i => i.Operator == "=");
+        if (hasLatch && hasAssign)
+            return ParseLatchAndCoil(instructions);
+
         string output = (containsS ? _setResetParser.InstructionParser(instructions) : _simpleLogicParser.InstructionParser(instructions));
         return output;
+    }
+
+    private string ParseLatchAndCoil(List<IInstruction> instructions)
+    {
+        var latch = instructions.Last(i => i.Operator is "S" or "R");
+        var srSource = instructions
+            .TakeWhile(i => i.Operator != ")")
+            .Where(i => i.Operator is not "A(" and not "(")
+            .ToList();
+        int latchRead = srSource.FindLastIndex(i =>
+            i.Operator is "A" or "AN" or "O" or "ON"
+            && i.Address?.MemoryArea == latch.Address?.MemoryArea
+            && i.Address?.Value == latch.Address?.Value);
+        if (latchRead >= 0) srSource.RemoveAt(latchRead);
+
+        var srEquation = _setResetParser.InstructionParser(srSource);
+
+        bool inParen = false;
+        var coil = new List<IInstruction>();
+        foreach (var ins in instructions)
+        {
+            var op = ins.Operator ?? "";
+            if (op == "A(" || op == "O(" || op == "X(")
+            {
+                inParen = true;
+                coil.Add(ins);
+                continue;
+            }
+            if (op == ")")
+            {
+                inParen = false;
+                coil.Add(ins);
+                continue;
+            }
+            if (op is "S" or "R") continue;
+            if (inParen
+                && !(ins.Address?.MemoryArea == latch.Address?.MemoryArea && ins.Address?.Value == latch.Address?.Value))
+                continue;
+            coil.Add(ins);
+        }
+
+        var coilEquation = _simpleLogicParser.InstructionParser(coil);
+        return $"{srEquation};;{coilEquation}";
     }
 
     public static List<List<IInstruction>> DivideAndConquer(List<IInstruction> instructions, bool hasSetReset = false)

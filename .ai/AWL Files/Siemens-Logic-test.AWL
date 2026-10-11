@@ -1,0 +1,62 @@
+FUNCTION_BLOCK FB 500
+VERSION : 0.1
+
+
+VAR_INPUT
+  IN0 : BOOL ;	
+  IN1 : BOOL ;	
+  IN2 : BOOL ;	
+END_VAR
+VAR_OUTPUT
+  OUT3 : BOOL ;	
+  OUT4 : BOOL ;	
+END_VAR
+VAR
+  STAT5 : BOOL ;	
+  STAT6 : BOOL ;	
+  STAT7 : BOOL ;	
+  STAT8 : BOOL ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    #IN2; 
+      AN    #STAT6; 
+      A     #IN1; 
+      R     #STAT5; 
+      A     #IN2; 
+      S     #STAT5; 
+      A     #STAT5; 
+      =     #OUT3; 
+NETWORK
+TITLE =
+
+      A     #STAT5; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    #STAT7; 
+      =     #STAT8; 
+      A     L      0.0; 
+      BLD   102; 
+      =     #STAT7; 
+NETWORK
+TITLE =
+
+      A     #IN0; 
+      R     #STAT6; 
+      A     #STAT8; 
+      S     #STAT6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     M      1.0; 
+      O     ; 
+      A     #STAT5; 
+      AN    #STAT6; 
+      O     ; 
+      A     #STAT6; 
+      A     M      1.1; 
+      =     #OUT4; 
+END_FUNCTION_BLOCK

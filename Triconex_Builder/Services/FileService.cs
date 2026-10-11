@@ -49,7 +49,7 @@ public class FileService(NetworkService networkService, FunctionService function
         var filePath = FileUtilities.SaveFileInDocuments("TriconexMigration", $"ParsedOn_{date}.xlsx");
         var workbook = new XLWorkbook();
 
-        if (programBuilder.FunctionBlocks.Count > 0)
+        if (programBuilder.FunctionBlocks?.Count > 0)
         {
             var worksheet = workbook.Worksheets.Add("Function Blocks");
             worksheet.Cell(1, 1).Value = "Logic";
@@ -71,7 +71,7 @@ public class FileService(NetworkService networkService, FunctionService function
         }
 
 
-        if (programBuilder.Functions.Count > 0)
+        if (programBuilder.Functions?.Count > 0)
         {
             var worksheet = workbook.Worksheets.Add("Functions");
             worksheet.Cell(1, 1).Value = "Logic";
@@ -95,7 +95,7 @@ public class FileService(NetworkService networkService, FunctionService function
         }
 
 
-        if (programBuilder.StandaloneNetwork.Count > 0)
+        if ((programBuilder.StandaloneNetwork?.Count ?? 0) > 0)
         {
             var worksheet = workbook.Worksheets.Add("Standalone Network");
             worksheet.Cell(1, 1).Value = "Logic";
@@ -149,7 +149,13 @@ public class FileService(NetworkService networkService, FunctionService function
             item.Columns().AdjustToContents();
         }
 
-        workbook.SaveAs(filePath); // Save the workbook
+        if (workbook.Worksheets.Count == 0)
+        {
+            var sheet = workbook.Worksheets.Add("Standalone Network");
+            sheet.Cell(1, 1).Value = "Logic";
+        }
+
+        workbook.SaveAs(filePath);
         Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
     }
 

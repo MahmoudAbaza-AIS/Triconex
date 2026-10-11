@@ -52,20 +52,23 @@ public static class HelperUtilities
         string result = regex.Replace(input, match =>
         {
             string functionName = match.Groups[1].Value;
-            string parameters = match.Groups[2].Value;  
+            string parameters = match.Groups[2].Value;
 
             string[] paramList = parameters.Split(',', StringSplitOptions.RemoveEmptyEntries);
 
             if (paramList.Length == 1)
             {
-                return paramList[0].Trim();
+                bool keepsGate = match.Index > 0 && input[match.Index - 1] == ')';
+                return keepsGate
+                    ? $"{functionName}({paramList[0].Trim()})"
+                    : paramList[0].Trim();
             }
 
             string joinedParams = string.Join(", ", paramList);
             return $"{functionName}({joinedParams})";
         });
 
-        result = Regex.Replace(result, @"\)\s*(AND|OR)\s*\(", "), $1 (");
+        result = Regex.Replace(result, @"\)\s*(AND|OR)\s*\((?!\s*[A-Za-z0-9_!]+\s*\))", "), $1 (");
 
         result = Regex.Replace(result, @"(?<=\))\s*!", ", !");
 

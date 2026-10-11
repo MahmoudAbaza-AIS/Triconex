@@ -18,16 +18,25 @@ public class InstructionParserFactory(
 
     public IInstructionParser Create(Network network)
     {
-        bool containsR = network.Instructions.Any(e => e.Operator.Contains('R'));
-        bool containsBracket = network.Instructions.Any(e => e.Operator.Contains('('));
-        bool containsHash = network.Instructions.Any(e => e.Address.MemoryArea.Contains("#"));
-        bool containsCall = network.Instructions.Any(e => e.Address.MemoryArea.ToUpper().Contains("CALL"));
-        bool hasLogicInstruction = network.Instructions.Any(e => !containsCall && !containsR && !containsBracket && !containsHash);
+        var operators = network.Instructions.Select(e => e.Operator ?? "").ToList();
+        bool containsReset = operators.Any(o => o == "R");
+        bool containsBracket = operators.Any(o => o.Contains('('));
+        bool containsTimer = operators.Any(o => o is "SP" or "SD" or "SF" or "SS" or "SE" or "SA" or "SI" or "SV");
+        bool containsCall = operators.Any(o => o is "CALL" or "UC" or "CC");
+        bool containsWord = operators.Any(o => o is "L" or "T" || IsMathOrCompare(o));
+        bool hasLogicInstruction = network.Instructions.Any() && !containsReset && !containsBracket;
 
+        if (containsTimer) return _timerParser;
+        if (containsCall || containsWord) return _simpleLogicParser;
         if (hasLogicInstruction) return _simpleLogicParser;
-        if (containsR && !containsBracket) return _setResetParser;
-        if (containsHash) return _timerParser;
-        if (containsBracket || (containsR && containsBracket)) return _multiLogicParser;
+        if (containsReset && !containsBracket) return _setResetParser;
+        if (containsBracket || containsReset) return _multiLogicParser;
         throw new ApplicationException("Network is not suitable to any of the Available Parsers");
     }
+
+    private static bool IsMathOrCompare(string op)
+        => op is "*R" or "*I" or "*D" or "+R" or "+I" or "+D" or "-R" or "-I" or "-D" or "/R" or "/I" or "/D" or "MOD"
+            or "==I" or "<>I" or ">=I" or "<=I" or ">I" or "<I"
+            or "==R" or "<>R" or ">=R" or "<=R" or ">R" or "<R"
+            or "==D" or "<>D" or ">=D" or "<=D" or ">D" or "<D";
 }

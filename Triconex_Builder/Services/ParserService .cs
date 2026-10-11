@@ -80,7 +80,7 @@ public static class ParserService
 
                 for (int i = 0; i < itemsToProcess.Count; i++)
                 {
-                    item.RemoveAll(instruction => instruction.Address?.MemoryArea == "L");
+                    item.RemoveAll(instruction => instruction.Address?.MemoryArea == "L" && instruction.Operator != "=");
                 }
             }
             multiList = itemsToProcess;

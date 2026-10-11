@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TriconexMigration.UnitTesting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b30718f857cd65274bc4ad78b99ccb19142fac3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1b330393d1e97adb1ce8a81e358caf5c4cfbe22")]
 [assembly: System.Reflection.AssemblyProductAttribute("TriconexMigration.UnitTesting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TriconexMigration.UnitTesting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

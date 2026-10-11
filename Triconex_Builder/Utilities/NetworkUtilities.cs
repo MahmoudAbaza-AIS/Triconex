@@ -13,26 +13,53 @@ public static class NetworkUtilities
 
         foreach (var item in data)
         {
-            if (item.Trim().StartsWith("TITLE"))
+            var trimmed = item.Trim();
+            if (trimmed.StartsWith("TITLE"))
             {
                 currentArray = new List<string>();
             }
             else if (
-                        item.Trim().StartsWith("NETWORK") ||
-                        item.Trim().StartsWith("END_FUNCTION_BLOCK") ||
-                        item.Trim().StartsWith("END_FUNCTION") ||
-                        item.Trim().StartsWith("END_NETWORK")
+                        trimmed.StartsWith("NETWORK") ||
+                        trimmed.StartsWith("NETZWERK") ||
+                        trimmed.StartsWith("END_FUNCTION_BLOCK") ||
+                        trimmed.StartsWith("END_FUNCTION") ||
+                        trimmed.StartsWith("END_ORGANIZATION_BLOCK") ||
+                        trimmed.StartsWith("END_ORGANISATION_BLOCK") ||
+                        trimmed.StartsWith("END_NETWORK")
                     )
             {
-                if (currentArray != null)
-                {
+                if (currentArray != null && currentArray.Count > 0)
                     nestedArrays.Add(currentArray);
-                }
+
+                if (trimmed.StartsWith("NETWORK") || trimmed.StartsWith("NETZWERK"))
+                    currentArray = [];
+                else
+                    currentArray = null;
             }
             else
             {
                 currentArray?.Add(item);
             }
+        }
+
+        if (nestedArrays.Count == 0)
+        {
+            var body = data.Where(line =>
+            {
+                var token = line.Trim();
+                return token.Length > 0
+                    && !token.StartsWith("END_")
+                    && !token.StartsWith("FUNCTION")
+                    && !token.StartsWith("ORGANIZATION_BLOCK")
+                    && !token.StartsWith("ORGANISATION_BLOCK")
+                    && !token.StartsWith("DATA_BLOCK")
+                    && !token.StartsWith("VERSION")
+                    && !token.StartsWith("VAR")
+                    && !token.StartsWith("BEGIN")
+                    && !token.Contains(" : ");
+            }).ToList();
+            if (body.Count > 0)
+                nestedArrays.Add(body);
         }
 
         return nestedArrays;

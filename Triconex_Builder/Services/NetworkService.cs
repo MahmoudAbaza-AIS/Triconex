@@ -19,9 +19,22 @@ public class NetworkService(IInstructionParserFactory instructionParserFactory, 
 
         foreach (var network in networks)
         {
-            IInstructionParser instruction = _instructionParserFactory.Create(network);
-            IInstructionCommand command = _instructionCommandFactory.GetCommand(instruction);
-            command.Execute(resultList, network, instruction, functionName);
+            try
+            {
+                IInstructionParser instruction = _instructionParserFactory.Create(network);
+                IInstructionCommand command = _instructionCommandFactory.GetCommand(instruction);
+                command.Execute(resultList, network, instruction, functionName);
+            }
+            catch (Exception)
+            {
+                var raw = string.Join(" | ", network.Instructions?.Select(i => $"{i.Operator} {i.Address?.MemoryArea} {i.Address?.Value}".Trim()) ?? []);
+                resultList.Add(new ResultParserDTO
+                {
+                    Logic = string.IsNullOrWhiteSpace(raw) ? "UNPARSED" : raw,
+                    NetworkNumber = network.Number,
+                    FunctionBlock = functionName ?? ""
+                });
+            }
         }
 
         resultList.ForEach(result =>

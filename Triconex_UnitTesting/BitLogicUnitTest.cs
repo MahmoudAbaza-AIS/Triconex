@@ -1,4 +1,5 @@
 using TriconexMigration.Application.Models;
+using TriconexMigration.Application.Parser;
 using TriconexMigration.Application.Services;
 using Xunit;
 using Xunit.Abstractions;
@@ -661,7 +662,7 @@ public class BitLogicUnitTest(ServiceFixture fixture, ITestOutputHelper output) 
         var StandaloneNetworkResult = _networkService.GetFinalParser(programBuilder.StandaloneNetwork ?? [], "");
         var testCase = StandaloneNetworkResult[0].Logic.ToString().Trim();
         _output.WriteLine(testCase);
-        Xunit.Assert.True("Q2_1P1 = AND( OR(M70_0 , I160_1), M1_1),AND (M30_7 , M1_3),OR (I160_2 , M70_1))".Replace(" ", "") == testCase.Trim().Replace(" ", ""));
+        Xunit.Assert.True("Q2_1P1 = OR(AND(OR(M70_0 , I160_1), M1_1), AND(M30_7 , M1_3), I160_2 , M70_1)".Replace(" ", "") == testCase.Trim().Replace(" ", ""));
     }
 
     [Fact]
@@ -807,7 +808,7 @@ public class BitLogicUnitTest(ServiceFixture fixture, ITestOutputHelper output) 
         _output.WriteLine(testCase);
         _output.WriteLine(testCase_2);
         Xunit.Assert.True("M14_0 = SR(M13_6, M13_7)".Replace(" ", "") == testCase.Replace(" ", ""));
-        Xunit.Assert.True("M14_2 = OR(AND(M14_0, !I2_5, !I2.6), I2_5)".Replace(" ", "") == testCase_2.Replace(" ", ""));
+        Xunit.Assert.True("M14_2 = OR(AND(M14_0, !I2_5, !I2_6), I2_5)".Replace(" ", "") == testCase_2.Replace(" ", ""));
     }
 
     [Fact]
@@ -837,51 +838,53 @@ public class BitLogicUnitTest(ServiceFixture fixture, ITestOutputHelper output) 
         //Xunit.Assert.True("Q2_4 = !Q2_4".Replace(" ", "") == testCase1.Replace(" ", ""));
     }
 
-    //[Fact]
-    //public void Pattern_X()
-    //{
-    //    var FileData = FileService.GetFileMock("""
-    //        NETWORK
-    //        TITLE =
+    [Fact]
+    public void Pattern_X()
+    {
+       var FileData = FileService.GetFileMock("""
+           NETWORK
+           TITLE =
 
-    //              A(    ; 
-    //              O     M     70.0; 
-    //              O     I    160.1; 
-    //              )     ; 
-    //              A     M      1.1; 
-    //              O     ; 
-    //              A     M     30.7; 
-    //              A     M      1.3; 
-    //              O     I    160.2; 
-    //              O     M     70.1; 
-    //              O     ; 
-    //              A(    ; 
-    //              O     M      4.7; 
-    //              O     M     47.1; 
-    //              O     M     19.1; 
-    //              O     M     19.2; 
-    //              O     M     46.0; 
-    //              O     M     15.4; 
-    //              O     M     50.0; 
-    //              O     M     25.0; 
-    //              O     M     15.1; 
-    //              O     ; 
-    //              AN    I      5.0; 
-    //              A     M     15.5; 
-    //              O     M     47.0; 
-    //              O     M     15.3; 
-    //              O     ; 
-    //              AN    I      5.0; 
-    //              A     M     15.2; 
-    //              O     M     15.0; 
-    //              )     ; 
-    //              A     M      1.1; 
-    //              =     Q      2.1;  
-    //        """
-    //    );
-    //    ProgramBuilder programBuilder = ProgramBuilder.GetProgramBuilder(FileData, "filePath");
-    //    var StandaloneNetworkResult = _networkService.GetFinalParser(programBuilder.StandaloneNetwork ?? [], "");
-    //    var testCase = StandaloneNetworkResult[0].Logic.ToString().Trim();
-    //    Xunit.Assert.True("Q2_1 = AND(OR(M70_0, I160_1)AND(M1_1OR(AND(M30_7, M1_3)OR(I160_2, M70_1, AND(OR(M4_7, M47_1, M19_1, M19_2, M46_0, M15_4, M50_0, M25_0, M15_1, AND(! I5_0, M15_5)OR(M47_0, M15_3, AND(! I5_0, M15_2)OR(M15_0AND(M1_1)))))))))".Replace(" ", "") == testCase.Replace(" ", ""));
-    //}
+                 A(    ; 
+                 O     M     70.0; 
+                 O     I    160.1; 
+                 )     ; 
+                 A     M      1.1; 
+                 O     ; 
+                 A     M     30.7; 
+                 A     M      1.3; 
+                 O     I    160.2; 
+                 O     M     70.1; 
+                 O     ; 
+                 A(    ; 
+                 O     M      4.7; 
+                 O     M     47.1; 
+                 O     M     19.1; 
+                 O     M     19.2; 
+                 O     M     46.0; 
+                 O     M     15.4; 
+                 O     M     50.0; 
+                 O     M     25.0; 
+                 O     M     15.1; 
+                 O     ; 
+                 AN    I      5.0; 
+                 A     M     15.5; 
+                 O     M     47.0; 
+                 O     M     15.3; 
+                 O     ; 
+                 AN    I      5.0; 
+                 A     M     15.2; 
+                 O     M     15.0; 
+                 )     ; 
+                 A     M      1.1; 
+                 =     Q      2.1;  
+           """
+       );
+       ProgramBuilder programBuilder = ProgramBuilder.GetProgramBuilder(FileData, "filePath");
+       var StandaloneNetworkResult = _networkService.GetFinalParser(programBuilder.StandaloneNetwork ?? [], "");
+       var testCase = StandaloneNetworkResult[0].Logic.ToString().Trim();
+       _output.WriteLine(testCase);
+       Xunit.Assert.Equal("OR", ComplexEquationParser.DetectOutermostGate(testCase));
+       Xunit.Assert.True("Q2_1=OR(AND(OR(M70_0,I160_1),M1_1),AND(M30_7,M1_3),I160_2,M70_1,AND(OR(M4_7,M47_1,M19_1,M19_2,M46_0,M15_4,M50_0,M25_0,M15_1,AND(!I5_0,M15_5),M47_0,M15_3,AND(!I5_0,M15_2),M15_0),M1_1))".Replace(" ", "") == testCase.Replace(" ", ""));
+    }
 }

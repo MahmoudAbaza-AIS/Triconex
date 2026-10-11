@@ -26,7 +26,7 @@ public class FunctionService(NetworkService networkService)
             Function Function = new()
             {
                 Name = function[0],
-                Version = function.Where(e => e.ToUpper().Contains("VERSION")).FirstOrDefault() ?? "",
+                Version = function.Where(e => e.ToUpper().Contains("VERSION")).FirstOrDefault() ?? "",  
                 Network = NetworkService.GetNetworksDetails(function),
             };
 

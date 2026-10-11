@@ -66,7 +66,8 @@ public class TimerParser : IInstructionParser
             "SP" => "TP",
             "SD" => "TON",
             "SF" => "TOF",
-            _ => throw new InvalidOperationException($"Unknown timer operator: {instructionOperator}")
+            //_ => throw new InvalidOperationException($"Unknown timer operator: {instructionOperator}")
+            _ => string.Empty
         };
     }
 }

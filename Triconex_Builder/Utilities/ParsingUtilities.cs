@@ -9,29 +9,45 @@ public static class ParsingUtilities
     {
         List<List<string>> nestedArrays = [];
         List<string> currentArray = [];
+        bool open = false;
 
         foreach (var item in data)
         {
-            if (item.Trim().Split(" ")?[0] == "FUNCTION")
+            if (IsLogicBlockStart(item))
             {
-                currentArray = [item];
-            }
-            else if (item.Trim() == "END_FUNCTION")
-            {
-                currentArray?.Add(item);
-                if (currentArray != null)
-                {
+                if (open && currentArray.Count > 0)
                     nestedArrays.Add(currentArray);
-                }
+                currentArray = [item];
+                open = true;
             }
-            else
+            else if (IsLogicBlockEnd(item))
             {
-                currentArray?.Add(item);
+                if (!open) continue;
+                currentArray.Add(item);
+                nestedArrays.Add(currentArray);
+                currentArray = [];
+                open = false;
+            }
+            else if (open)
+            {
+                currentArray.Add(item);
             }
         }
 
+        if (open && currentArray.Count > 0)
+            nestedArrays.Add(currentArray);
+
         return nestedArrays;
     }
+
+    private static string FirstToken(string item)
+        => item.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? "";
+
+    private static bool IsLogicBlockStart(string item)
+        => FirstToken(item) is "FUNCTION" or "ORGANIZATION_BLOCK" or "ORGANISATION_BLOCK";
+
+    private static bool IsLogicBlockEnd(string item)
+        => FirstToken(item) is "END_FUNCTION" or "END_ORGANIZATION_BLOCK" or "END_ORGANISATION_BLOCK";
 
     public static List<List<string>> GetFunctionBlocksBoundaries(List<string> data)
     {
@@ -79,8 +95,23 @@ public static class ParsingUtilities
         return FB;
     }
 
+    public static string NormalizeAwlOperator(string op)
+    {
+        var token = op.Trim().ToUpperInvariant();
+        return token switch
+        {
+            "U" => "A",
+            "UN" => "AN",
+            "U(" => "A(",
+            "SI" => "SP",
+            "SE" => "SD",
+            "SA" => "SF",
+            _ => token
+        };
+    }
+
     public static bool IsBitLogicType(string statement)
-        => new Regex(@"^(AN|A|R|=)").IsMatch(statement.Trim());
+        => Regex.IsMatch(statement.Trim(), @"^(UN|U\(|U|XN|X\(|X|ON|O\(|O|AN|A\(|A|NOT|R|S|=|\)|\()(?=\s|$)", RegexOptions.IgnoreCase);
 
     public static bool IsLoadAndTransferType(string statement)
         => new Regex(@"").IsMatch(statement.Trim());

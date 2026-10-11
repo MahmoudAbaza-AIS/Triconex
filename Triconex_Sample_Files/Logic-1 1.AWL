@@ -1,0 +1,4621 @@
+FUNCTION_BLOCK FB 500
+VERSION : 0.1
+
+
+VAR_INPUT
+  IN0 : BOOL ;	
+  IN1 : BOOL ;	
+  IN2 : BOOL ;	
+END_VAR
+VAR_OUTPUT
+  OUT3 : BOOL ;	
+  OUT4 : BOOL ;	
+END_VAR
+VAR
+  STAT5 : BOOL ;	
+  STAT6 : BOOL ;	
+  STAT7 : BOOL ;	
+  STAT8 : BOOL ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    #IN2; 
+      AN    #STAT6; 
+      A     #IN1; 
+      R     #STAT5; 
+      A     #IN2; 
+      S     #STAT5; 
+      A     #STAT5; 
+      =     #OUT3; 
+NETWORK
+TITLE =
+
+      A     #STAT5; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    #STAT7; 
+      =     #STAT8; 
+      A     L      0.0; 
+      BLD   102; 
+      =     #STAT7; 
+NETWORK
+TITLE =
+
+      A     #IN0; 
+      R     #STAT6; 
+      A     #STAT8; 
+      S     #STAT6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     M      1.0; 
+      O     ; 
+      A     #STAT5; 
+      AN    #STAT6; 
+      O     ; 
+      A     #STAT6; 
+      A     M      1.1; 
+      =     #OUT4; 
+END_FUNCTION_BLOCK
+
+FUNCTION FC 0 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M    900.4; 
+      A     M    900.1; 
+      O     ; 
+      AN    M    900.1; 
+      AN    M    900.0; 
+      O     ; 
+      AN    M    900.5; 
+      A     M    900.0; 
+      O     M    900.2; 
+      O     M    900.3; 
+      O     DB103.DBX    0.2; 
+      O     DB104.DBX    0.2; 
+      O     DB106.DBX    0.2; 
+      =     M      8.0; 
+NETWORK
+TITLE =
+
+      AN    M      8.0; 
+      =     Q      4.1; 
+NETWORK
+TITLE =
+
+      A     I      3.0; 
+      =     M      1.0; 
+NETWORK
+TITLE =
+
+      A     M      0.5; 
+      =     M      1.1; 
+NETWORK
+TITLE =
+
+      A     M      0.7; 
+      =     M      1.2; 
+NETWORK
+TITLE =
+
+      A     M      1.1; 
+      A     M      1.2; 
+      =     M      1.3; 
+NETWORK
+TITLE =
+
+      A     I      4.1; 
+      A     M     91.0; 
+      AN    M      4.7; 
+      =     M      4.1; 
+NETWORK
+TITLE =
+
+      AN    I      4.1; 
+      =     M      4.0; 
+NETWORK
+TITLE =
+
+      O     M      1.0; 
+      O     M      4.1; 
+      O     ; 
+      A     M      4.7; 
+      A     M      1.1; 
+      =     Q      1.7; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      =     Q      3.7; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      A     I    133.4; 
+      =     M      5.0; 
+NETWORK
+TITLE =
+
+      A     M     15.4; 
+      L     S5T#5M; 
+      SD    T      3; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.4; 
+      A     M      4.0; 
+      O     ; 
+      A     I    133.1; 
+      A     M      4.1; 
+      A     M      5.0; 
+      O     M     10.7; 
+      O     M     47.0; 
+      O     M     19.1; 
+      O     M     19.2; 
+      O     M     15.3; 
+      O     T      3; 
+      =     M     10.2; 
+NETWORK
+TITLE =
+
+      O     M     10.2; 
+      O     ; 
+      A     I      2.5; 
+      A     M     15.0; 
+      O     ; 
+      A     I      2.6; 
+      A     M     15.1; 
+      O     ; 
+      A     M     15.0; 
+      A     M     15.1; 
+      AN    I      2.5; 
+      AN    I      2.6; 
+      =     M     10.3; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     I      2.3; 
+      A     M      4.0; 
+      O     ; 
+      A     I    133.0; 
+      A     M      4.1; 
+      A     M      5.0; 
+      )     ; 
+      S     M     11.1; 
+      A(    ; 
+      O     M     10.3; 
+      O     M     23.3; 
+      )     ; 
+      R     M     11.1; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      ON    I      0.1; 
+      ON    I      0.5; 
+      ON    I     10.0; 
+      ON    I     14.3; 
+      ON    I     18.6; 
+      ON    I     23.1; 
+      )     ; 
+      A(    ; 
+      ON    M     15.0; 
+      ON    M     15.1; 
+      )     ; 
+      =     M     12.2; 
+NETWORK
+TITLE =
+
+      A     M     12.2; 
+      L     S5T#5S; 
+      SD    T      8; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      8; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M     12.3; 
+      =     M     12.4; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M     12.3; 
+NETWORK
+TITLE =
+
+      A     M     12.2; 
+      L     S5T#1M; 
+      SF    T      9; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     M     12.2; 
+      L     S5T#5M; 
+      SD    T     10; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     M     11.2; 
+      O     M     20.6; 
+      O     M     20.7; 
+      =     Q     32.0; 
+NETWORK
+TITLE =
+
+      A     M     12.4; 
+      S     M     11.2; 
+      A(    ; 
+      O     M     10.3; 
+      ON    T      9; 
+      O     T     10; 
+      )     ; 
+      R     M     11.2;
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     M     11.1; 
+      O     M     11.2; 
+      =     M     11.3; 
+NETWORK
+TITLE =
+
+      A     I      2.6; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M      9.0; 
+      =     M      9.1; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M      9.0; 
+NETWORK
+TITLE =
+
+      AN    I      2.6; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M      9.2; 
+      =     M      9.3; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M      9.2; 
+NETWORK
+TITLE =
+
+      A     I      2.5; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M      9.4; 
+      =     M      9.5; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M      9.4; 
+NETWORK
+TITLE =
+
+      AN    I      2.5; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M      9.6; 
+      =     M      9.7; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M      9.6; 
+NETWORK
+TITLE =
+
+      O     M      9.1; 
+      O     M      9.3; 
+      O     M      9.5; 
+      O     M      9.7; 
+      =     M     10.7; 
+NETWORK
+TITLE =
+
+      A     M     11.3; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M     13.0; 
+      =     M     13.1; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M     13.0; 
+NETWORK
+TITLE =
+
+      A     M     15.0; 
+      A     M     14.0; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M     13.2; 
+      =     M     13.3; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M     13.2; 
+NETWORK
+TITLE =
+
+      A     M     15.1; 
+      AN    M     14.0; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M     13.4; 
+      =     M     13.5; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M     13.4; 
+NETWORK
+TITLE =
+
+      AN    M     14.0; 
+      A(    ; 
+      O     M     13.1; 
+      O     M     13.3; 
+      O     M     13.5; 
+      )     ; 
+      =     M     13.6; 
+NETWORK
+TITLE =
+
+      A     M     14.0; 
+      A(    ; 
+      O     M     13.1; 
+      O     M     13.3; 
+      O     M     13.5; 
+      )     ; 
+      =     M     13.7; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     M     13.7; 
+      R     M     14.0; 
+      A     M     13.6; 
+      S     M     14.0; 
+      A     M     14.0; 
+      )     ; 
+      AN    I      2.5; 
+      AN    I      2.6; 
+      O     I      2.5; 
+      =     M     14.2; 
+NETWORK
+TITLE =
+
+      A     M     11.3; 
+      A     M     14.2; 
+      AN    M     15.0; 
+      =     M     14.3; 
+NETWORK
+TITLE =
+
+      A     M     14.3; 
+      L     S5T#2S; 
+      SP    T     11; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     11; 
+      =     Q      3.0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      AN    M     14.3; 
+      L     S5T#2S; 
+      SP    T     12; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     12; 
+      )     ; 
+      NOT   ; 
+      =     Q      3.1; 
+NETWORK
+TITLE =
+
+      A     M     11.3; 
+      AN    M     14.2; 
+      AN    M     15.1; 
+      =     M     14.5; 
+NETWORK
+TITLE =
+
+      A     M     14.5; 
+      L     S5T#2S; 
+      SP    T     13; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     13; 
+      =     Q      3.2; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      AN    M     14.5; 
+      L     S5T#2S; 
+      SP    T     14; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     14; 
+      )     ; 
+      NOT   ; 
+      =     Q      3.3; 
+NETWORK
+TITLE =
+
+      AN    I      3.3; 
+      A     M     14.3; 
+      L     S5T#3S; 
+      SD    T     15; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     15; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   500 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     15.0,
+           OUT4                     := Q      4.6);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     M      1.0; 
+      O     I      3.3; 
+      =     Q      1.2; 
+NETWORK
+TITLE =
+
+      AN    I      3.4; 
+      A     M     14.5; 
+      L     S5T#3S; 
+      SD    T     16; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     16; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   501 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     15.1,
+           OUT4                     := Q      4.7);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     M      1.0; 
+      O     I      3.4; 
+      =     Q      1.3; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      O     Q      1.2; 
+      O     Q      1.3; 
+      )     ; 
+      A     M      4.1; 
+      =     Q    132.0; 
+NETWORK
+TITLE =
+
+      AN    I      0.2; 
+      L     S5T#2S; 
+      SD    T     17; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      O     T     17; 
+      O     T     20; 
+      )     ; 
+      AN    I      5.0; 
+      NOT   ; 
+      =     Q      2.4; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A(    ; 
+      O     T     17; 
+      O     T     10; 
+      )     ; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   502 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     15.2,
+           OUT4                     := Q      0.4);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    I      1.0; 
+      L     S5T#2S; 
+      SD    T     18; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     18; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   504 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     15.3,
+           OUT4                     := Q      0.3);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    I      0.7; 
+      L     S5T#2S; 
+      SD    T     19; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     19; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   505 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     15.4,
+           OUT4                     := Q      0.2);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    I      0.6; 
+      L     S5T#2S; 
+      SD    T     20; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     20; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   506 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     15.5,
+           OUT4                     := Q      0.5);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    I      0.4; 
+      L     S5T#2S; 
+      SD    T     21; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     21; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   507 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     19.1,
+           OUT4                     := Q      0.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    I      0.0; 
+      L     S5T#2S; 
+      SD    T     22; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      A     T     22; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   508 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     19.2,
+           OUT4                     := Q      0.0);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I    134.5; 
+      A     M      4.1; 
+      O     ; 
+      A     I      1.6; 
+      A     M      4.0; 
+      =     M     20.0; 
+NETWORK
+TITLE =
+
+      A     I    134.4; 
+      A     M      4.1; 
+      O     ; 
+      A     I      1.7; 
+      A     M      4.0; 
+      =     M     20.1; 
+NETWORK
+TITLE =
+
+      A     I    134.0; 
+      A     M      4.1; 
+      O     ; 
+      A     I      1.2; 
+      A     M      4.0; 
+      =     M     20.2; 
+NETWORK
+TITLE =
+
+      A     I    134.1; 
+      A     M      4.1; 
+      O     ; 
+      A     I      1.3; 
+      A     M      4.0; 
+      =     M     20.3; 
+NETWORK
+TITLE =
+
+      A     I    134.3; 
+      A     M      4.1; 
+      O     ; 
+      A     I      1.4; 
+      A     M      4.0; 
+      =     M     20.4; 
+NETWORK
+TITLE =
+
+      A     I    134.2; 
+      A     M      4.1; 
+      O     ; 
+      A     I      1.5; 
+      A     M      4.0; 
+      =     M     20.5; 
+NETWORK
+TITLE =
+
+      A     I    134.7; 
+      A     M      4.1; 
+      A     M      5.0; 
+      O     ; 
+      A     I      2.2; 
+      A     M      4.0; 
+      =     M     20.6; 
+NETWORK
+TITLE =
+
+      A     I    134.6; 
+      A     M      4.1; 
+      A     M      5.0; 
+      O     ; 
+      A     I      2.1; 
+      A     M      4.0; 
+      =     M     20.7; 
+NETWORK
+TITLE =
+
+      O     M     20.0; 
+      O     M     20.1; 
+      O     M     20.2; 
+      O     M     20.3; 
+      O     M     20.4; 
+      O     M     20.5; 
+      O     M     20.6; 
+      O     M     20.7; 
+      =     M     23.1; 
+NETWORK
+TITLE =
+
+      AN    M     23.1; 
+      A(    ; 
+      O     I      3.3; 
+      O     I      3.4; 
+      )     ; 
+      L     S5T#4M; 
+      SD    T     25; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     T     25; 
+      =     L      0.0; 
+      A     L      0.0; 
+      AN    M     23.2; 
+      =     M     23.3; 
+      A     L      0.0; 
+      BLD   102; 
+      =     M     23.2; 
+NETWORK
+TITLE =
+
+      A     I      3.7; 
+      A     M      4.0; 
+      O     ; 
+      A     I    133.2; 
+      A     M      4.1; 
+      A     M      5.0; 
+      =     M     22.0; 
+NETWORK
+TITLE =
+
+      A     I      4.0; 
+      A     M      4.0; 
+      O     ; 
+      A     I    133.3; 
+      A     M      4.1; 
+      A     M      5.0; 
+      =     M     22.1; 
+NETWORK
+TITLE =
+
+      O     I    161.0; 
+      O     I    162.0; 
+      O     I    163.0; 
+      O     I    164.0; 
+      =     M     30.7; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      O     M     70.0; 
+      O     I    160.1; 
+      )     ; 
+      A     M      1.1; 
+      O     ; 
+      A     M     30.7; 
+      A     M      1.3; 
+      O     I    160.2; 
+      O     M     70.1; 
+      O     ; 
+      A(    ; 
+      O     M      4.7; 
+      O     M     47.1; 
+      O     M     19.1; 
+      O     M     19.2; 
+      O     M     46.0; 
+      O     M     15.4; 
+      O     M     50.0; 
+      O     M     25.0; 
+      O     M     15.1; 
+      O     ; 
+      AN    I      5.0; 
+      A     M     15.5; 
+      O     M     47.0; 
+      O     M     15.3; 
+      O     ; 
+      AN    I      5.0; 
+      A     M     15.2; 
+      O     M     15.0; 
+      )     ; 
+      A     M      1.1; 
+      =     Q      2.1; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     30.0; 
+      AN    M     70.0; 
+      S     M     30.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     30.1; 
+      A(    ; 
+      ON    M     15.5; 
+      O     I      5.0; 
+      )     ; 
+      S     M     30.1; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     30.2; 
+      AN    M     50.0; 
+      S     M     30.2; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     30.4; 
+      AN    M     15.3; 
+      S     M     30.4; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.3; 
+      AN    M    121.0; 
+      S     M     32.3; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.4; 
+      AN    M    221.0; 
+      S     M     32.4; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.5; 
+      AN    M    321.0; 
+      S     M     32.5; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.6; 
+      AN    M    421.0; 
+      S     M     32.6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     M     32.3; 
+      A     M    121.0; 
+      O     ; 
+      A     M     32.4; 
+      A     M    221.0; 
+      O     ; 
+      A     M     32.5; 
+      A     M    321.0; 
+      O     ; 
+      A     M     32.6; 
+      A     M    421.0; 
+      =     M     30.5; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     30.6; 
+      AN    M     15.1; 
+      S     M     30.6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      O     M    110.2; 
+      O     M    210.2; 
+      O     M    310.2; 
+      O     M    410.2; 
+      )     ; 
+      AN    I    160.0; 
+      =     M     25.0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.0; 
+      AN    M     25.0; 
+      S     M     31.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.1; 
+      AN    M      4.7; 
+      S     M     31.1; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.2; 
+      AN    M     15.4; 
+      S     M     31.2; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.7; 
+      AN    M    120.0; 
+      S     M     32.7; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.0; 
+      AN    M    220.0; 
+      S     M     33.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.1; 
+      AN    M    320.0; 
+      S     M     33.1; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.2; 
+      AN    M    420.0; 
+      S     M     33.2; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     M     32.7; 
+      A     M    120.0; 
+      O     ; 
+      A     M     33.0; 
+      A     M    220.0; 
+      O     ; 
+      A     M     33.1; 
+      A     M    320.0; 
+      O     ; 
+      A     M     33.2; 
+      A     M    420.0; 
+      )     ; 
+      AN    I      5.0; 
+      =     M     31.3; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.4; 
+      AN    M     19.1; 
+      AN    M     19.2; 
+      S     M     31.4; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.5; 
+      A(    ; 
+      ON    M     15.2; 
+      O     I      5.0; 
+      )     ; 
+      S     M     31.5; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.6; 
+      AN    M     30.7; 
+      S     M     31.6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     31.7; 
+      AN    M     15.0; 
+      S     M     31.7; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.0; 
+      AN    M     70.1; 
+      S     M     32.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.1; 
+      AN    I    160.1; 
+      S     M     32.1; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     32.2; 
+      AN    I    160.2; 
+      S     M     32.2; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     M     70.0; 
+      A     M     30.0; 
+      A     M      1.1; 
+      O     ; 
+      A(    ; 
+      AN    I      5.0; 
+      A     M     15.5; 
+      A     M     30.1; 
+      O     ; 
+      A     M     50.0; 
+      A     M     30.2; 
+      O     ; 
+      A     M     15.3; 
+      A     M     30.4; 
+      O     M     30.5; 
+      O     ; 
+      A     M     15.1; 
+      A     M     30.6; 
+      O     ; 
+      A     M     25.0; 
+      A     M     31.0; 
+      O     ; 
+      A     M      4.7; 
+      A     M     31.1; 
+      O     ; 
+      A     M     15.4; 
+      A     M     31.2; 
+      O     M     31.3; 
+      O     ; 
+      A(    ; 
+      O     M     19.1; 
+      O     M     19.2; 
+      )     ; 
+      A     M     31.4; 
+      O     ; 
+      AN    I      5.0; 
+      A     M     15.2; 
+      A     M     31.5; 
+      O     ; 
+      A     M     15.0; 
+      A     M     31.7; 
+      )     ; 
+      A     M      1.1; 
+      O     ; 
+      A     M     30.7; 
+      A     M     31.6; 
+      A     M      1.3; 
+      O     ; 
+      A     M     47.1; 
+      A     M     47.2; 
+      A     M      1.1; 
+      O     ; 
+      A     M     70.1; 
+      A     M     32.0; 
+      O     ; 
+      A     I    160.1; 
+      A     M     32.1; 
+      A     M      1.1; 
+      O     ; 
+      A     I    160.2; 
+      A     M     32.2; 
+      =     Q      2.0; 
+NETWORK
+TITLE =
+
+      O     M    121.0; 
+      O     M    221.0; 
+      O     M    321.0; 
+      O     M    421.0; 
+      =     M     47.0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      O     M    120.0; 
+      O     M    220.0; 
+      O     M    320.0; 
+      O     M    420.0; 
+      )     ; 
+      AN    I      5.0; 
+      =     M     46.0; 
+NETWORK
+TITLE =
+
+      O     M    132.1; 
+      O     M    232.1; 
+      O     M    332.1; 
+      O     M    432.1; 
+      =     M     47.1; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.3; 
+      AN    M    132.1; 
+      S     M     33.3; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.4; 
+      AN    M    232.1; 
+      S     M     33.4; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.5; 
+      AN    M    332.1; 
+      S     M     33.5; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      R     M     33.6; 
+      AN    M    432.1; 
+      S     M     33.6; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     M     33.3; 
+      A     M    132.1; 
+      O     ; 
+      A     M     33.4; 
+      A     M    232.1; 
+      O     ; 
+      A     M     33.5; 
+      A     M    332.1; 
+      O     ; 
+      A     M     33.6; 
+      A     M    432.1; 
+      =     M     47.2; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I      6.3; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   509 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M     50.0,
+           OUT4                     := Q      1.6);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     M     50.0; 
+      =     Q      4.0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     I      2.0; 
+      A     M      4.0; 
+      O     ; 
+      A     I    132.4; 
+      A     M      4.1; 
+      )     ; 
+      AN    M     20.6; 
+      AN    M     20.7; 
+      =     Q     32.1; 
+NETWORK
+TITLE =
+
+      AN    I      5.1; 
+      L     S5T#0MS; 
+      SD    T     32; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    I      5.7; 
+      L     S5T#0MS; 
+      SD    T     30; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     T     32; 
+      O     T     30; 
+      =     M     70.0; 
+NETWORK
+TITLE =
+
+      A     T     32; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q      1.0; 
+NETWORK
+TITLE =
+
+      AN    I      5.4; 
+      L     S5T#0MS; 
+      SD    T     33; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     T     33; 
+      =     M     70.1; 
+NETWORK
+TITLE =
+
+      O     T     33; 
+      O     M      1.0; 
+      =     Q      1.1; 
+NETWORK
+TITLE =
+
+      O     I      5.6; 
+      O     M      1.0; 
+      =     Q      1.4; 
+NETWORK
+TITLE =
+
+      O     M      1.0; 
+      O     ; 
+      A     T     30; 
+      A     M      1.1; 
+      =     Q      1.5; 
+NETWORK
+TITLE =
+
+      O     I      5.2; 
+      O     M      1.0; 
+      =     Q      0.6; 
+NETWORK
+TITLE =
+
+      A     I      1.1; 
+      =     Q      2.5; 
+NETWORK
+TITLE =
+
+      A     I      3.5; 
+      =     Q      3.4; 
+NETWORK
+TITLE =
+
+      O     I      5.0; 
+      O     M      1.0; 
+      =     Q      0.7; 
+NETWORK
+TITLE =
+
+      A     I      3.1; 
+      L     S5T#150MS; 
+      SF    T     31; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     31; 
+      =     Q      2.7; 
+NETWORK
+TITLE =
+
+      A     I      3.2; 
+      L     S5T#150MS; 
+      SF    T     34; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     34; 
+      =     Q      2.6; 
+END_FUNCTION
+
+FUNCTION FC 1 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     M      4.0; 
+      A     I      7.4; 
+      AN    M      4.7; 
+      O     M     92.0; 
+      )     ; 
+      A     I      5.5; 
+      A     I      9.6; 
+      A     I      9.0; 
+      =     M    100.0; 
+NETWORK
+TITLE =
+
+      O     M    100.0; 
+      O     M    101.0; 
+      =     Q     33.0; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      A     M      1.1; 
+      O     M    101.0; 
+      O     M      1.0; 
+      =     Q      5.4; 
+NETWORK
+TITLE =
+
+      A     Q      5.4; 
+      A     M      4.1; 
+      =     Q    132.5; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      A     M     22.0; 
+      S     M    101.0; 
+      A     M    100.0; 
+      A     M     22.1; 
+      R     M    101.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     11.1; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q      6.2; 
+NETWORK
+TITLE =
+
+      AN    I     11.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q      6.3; 
+NETWORK
+TITLE =
+
+      AN    I      8.7; 
+      =     M    110.2; 
+NETWORK
+TITLE =
+
+      A     M    110.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q      5.6; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      A     I      8.0; 
+      L     S5T#150MS; 
+      SD    T     50; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     50; 
+      )     ; 
+      O     M      1.0; 
+      =     Q      5.3; 
+NETWORK
+TITLE =
+
+      A     T     50; 
+      =     Q      6.7; 
+NETWORK
+TITLE =
+
+      ON    I     10.6; 
+      O     M      1.0; 
+      =     Q      5.0; 
+NETWORK
+TITLE =
+
+      A     I     10.7; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q      6.4; 
+NETWORK
+TITLE =
+
+      ON    I     11.4; 
+      O     M      1.0; 
+      =     Q      6.0; 
+NETWORK
+TITLE =
+
+      ON    I     11.3; 
+      O     M      1.0; 
+      =     Q      5.7; 
+NETWORK
+TITLE =
+
+      AN    I     10.5; 
+      =     M    132.1; 
+NETWORK
+TITLE =
+
+      A     M    132.1; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q      5.5; 
+NETWORK
+TITLE =
+
+      O     I     11.0; 
+      O     M      1.0; 
+      =     Q      6.1; 
+NETWORK
+TITLE =
+
+      A     I      9.0; 
+      =     Q      8.0; 
+NETWORK
+TITLE =
+
+      A     I      9.1; 
+      =     Q      7.1; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.0; 
+      =     Q     33.5; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.1; 
+      =     Q     33.6; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.3; 
+      =     Q     33.2; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.2; 
+      =     Q     33.1; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.4; 
+      =     Q     33.3; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.5; 
+      =     Q     33.4; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.6; 
+      =     Q     34.1; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      AN    M    101.0; 
+      A(    ; 
+      ON    M    110.3; 
+      O     M    140.0; 
+      )     ; 
+      A     M     20.7; 
+      AN    T     50; 
+      A     I      9.6; 
+      =     Q     34.0; 
+NETWORK
+TITLE =
+
+      O     Q     33.5; 
+      O     Q     33.6; 
+      O     Q     33.2; 
+      O     Q     33.1; 
+      O     Q     33.3; 
+      O     Q     33.4; 
+      =     Q     33.7; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I      7.7; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   517 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    120.0,
+           OUT4                     := Q      5.2);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      7.7; 
+      =     Q      8.6; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I      7.5; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   518 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    121.0,
+           OUT4                     := Q      5.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I      7.5; 
+      =     Q      7.7; 
+NETWORK
+TITLE =
+
+      AN    I      7.6; 
+      =     Q      7.2; 
+NETWORK
+TITLE =
+
+      A     I      9.5; 
+      =     Q      8.4; 
+NETWORK
+TITLE =
+
+      A     I      9.2; 
+      =     M    140.0; 
+NETWORK
+TITLE =
+
+      A     M    140.0; 
+      =     Q      7.0; 
+NETWORK
+TITLE =
+
+      A     I      9.4; 
+      =     Q      8.3; 
+NETWORK
+TITLE =
+
+      A     I      9.3; 
+      =     Q      8.5; 
+NETWORK
+TITLE =
+
+      A     I     10.2; 
+      A     I     10.4; 
+      A     I      9.7; 
+      =     Q     34.3; 
+NETWORK
+TITLE =
+
+      A     I     10.3; 
+      A     I     10.4; 
+      A     I      9.7; 
+      =     Q     34.2; 
+NETWORK
+TITLE =
+
+      A     I     10.4; 
+      A     I      9.7; 
+      =     Q     34.4; 
+NETWORK
+TITLE =
+
+      A     I      8.2; 
+      L     S5T#150MS; 
+      SD    T     58; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     58; 
+      =     Q      7.5; 
+NETWORK
+TITLE =
+
+      A     I      8.4; 
+      L     S5T#150MS; 
+      SD    T     43; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     43; 
+      =     Q      6.6; 
+NETWORK
+TITLE =
+
+      A     I      8.6; 
+      L     S5T#150MS; 
+      SD    T     44; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     44; 
+      =     Q      8.1; 
+NETWORK
+TITLE =
+
+      A     I      8.1; 
+      L     S5T#150MS; 
+      SD    T     59; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     59; 
+      =     Q      7.4; 
+NETWORK
+TITLE =
+
+      A     I      8.3; 
+      L     S5T#150MS; 
+      SD    T     46; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     46; 
+      =     Q      7.6; 
+NETWORK
+TITLE =
+
+      A     I      8.5; 
+      L     S5T#150MS; 
+      SD    T     47; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     47; 
+      =     Q      8.2; 
+NETWORK
+TITLE =
+
+      A     I      9.7; 
+      =     Q      7.3; 
+NETWORK
+TITLE =
+
+      ON    T     58; 
+      ON    T     59; 
+      =     M    110.3; 
+END_FUNCTION
+
+FUNCTION FC 2 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     M      4.0; 
+      A     I     11.7; 
+      AN    M      4.7; 
+      O     M     92.1; 
+      )     ; 
+      A     I      5.5; 
+      A     I     14.1; 
+      A     I     13.3; 
+      =     M    200.0; 
+NETWORK
+TITLE =
+
+      O     M    200.0; 
+      O     M    201.0; 
+      =     Q     35.0; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      A     M      1.1; 
+      O     M    201.0; 
+      O     M      1.0; 
+      =     Q     10.4; 
+NETWORK
+TITLE =
+
+      A     Q     10.4; 
+      A     M      4.1; 
+      =     Q    132.2; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      A     M     22.0; 
+      S     M    201.0; 
+      A     M    200.0; 
+      A     M     22.1; 
+      R     M    201.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     15.4; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     11.2; 
+NETWORK
+TITLE =
+
+      AN    I     15.5; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     11.3; 
+NETWORK
+TITLE =
+
+      AN    I     13.2; 
+      =     M    210.2; 
+NETWORK
+TITLE =
+
+      A     M    210.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     10.6; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      A     I     12.3; 
+      L     S5T#150MS; 
+      SD    T     70; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     70; 
+      )     ; 
+      O     M      1.0; 
+      =     Q     10.3; 
+NETWORK
+TITLE =
+
+      A     T     70; 
+      =     Q     11.7; 
+NETWORK
+TITLE =
+
+      ON    I     15.1; 
+      O     M      1.0; 
+      =     Q     10.0; 
+NETWORK
+TITLE =
+
+      A     I     15.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     11.4; 
+NETWORK
+TITLE =
+
+      ON    I     15.7; 
+      O     M      1.0; 
+      =     Q     11.0; 
+NETWORK
+TITLE =
+
+      ON    I     15.6; 
+      O     M      1.0; 
+      =     Q     10.7; 
+NETWORK
+TITLE =
+
+      AN    I     15.0; 
+      =     M    232.1; 
+NETWORK
+TITLE =
+
+      A     M    232.1; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     10.5; 
+NETWORK
+TITLE =
+
+      O     I     15.3; 
+      O     M      1.0; 
+      =     Q     11.1; 
+NETWORK
+TITLE =
+
+      A     I     13.3; 
+      =     Q     13.0; 
+NETWORK
+TITLE =
+
+      A     I     13.4; 
+      =     Q     12.1; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.0; 
+      =     Q     35.5; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.1; 
+      =     Q     35.6; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.3; 
+      =     Q     35.2; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.2; 
+      =     Q     35.1; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.4; 
+      =     Q     35.3; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.5; 
+      =     Q     35.4; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.6; 
+      =     Q     36.1; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      AN    M    201.0; 
+      A(    ; 
+      ON    M    210.3; 
+      O     M    240.0; 
+      )     ; 
+      A     M     20.7; 
+      AN    T     70; 
+      A     I     14.1; 
+      =     Q     36.0; 
+NETWORK
+TITLE =
+
+      O     Q     35.5; 
+      O     Q     35.6; 
+      O     Q     35.2; 
+      O     Q     35.1; 
+      O     Q     35.3; 
+      O     Q     35.4; 
+      =     Q     35.7; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I     12.2; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   519 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    220.0,
+           OUT4                     := Q     10.2);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     12.2; 
+      =     Q     13.6; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I     12.0; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   520 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    221.0,
+           OUT4                     := Q     10.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     12.0; 
+      =     Q     12.7; 
+NETWORK
+TITLE =
+
+      AN    I     12.1; 
+      =     Q     12.2; 
+NETWORK
+TITLE =
+
+      A     I     14.0; 
+      =     Q     13.4; 
+NETWORK
+TITLE =
+
+      A     I     13.5; 
+      =     M    240.0; 
+NETWORK
+TITLE =
+
+      A     M    240.0; 
+      =     Q     12.0; 
+NETWORK
+TITLE =
+
+      A     I     13.7; 
+      =     Q     13.3; 
+NETWORK
+TITLE =
+
+      A     I     13.6; 
+      =     Q     13.5; 
+NETWORK
+TITLE =
+
+      A     I     14.5; 
+      A     I     14.7; 
+      A     I     14.2; 
+      =     Q     36.3; 
+NETWORK
+TITLE =
+
+      A     I     14.6; 
+      A     I     14.7; 
+      A     I     14.2; 
+      =     Q     36.2; 
+NETWORK
+TITLE =
+
+      A     I     14.7; 
+      A     I     14.2; 
+      =     Q     36.4; 
+NETWORK
+TITLE =
+
+      A     I     12.5; 
+      L     S5T#150MS; 
+      SD    T     78; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     78; 
+      =     Q     12.5; 
+NETWORK
+TITLE =
+
+      A     I     12.7; 
+      L     S5T#150MS; 
+      SD    T     63; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     63; 
+      =     Q     11.6; 
+NETWORK
+TITLE =
+
+      A     I     13.1; 
+      L     S5T#150MS; 
+      SD    T     64; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     64; 
+      =     Q     13.1; 
+NETWORK
+TITLE =
+
+      A     I     12.4; 
+      L     S5T#150MS; 
+      SD    T     79; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     79; 
+      =     Q     12.4; 
+NETWORK
+TITLE =
+
+      A     I     12.6; 
+      L     S5T#150MS; 
+      SD    T     66; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     66; 
+      =     Q     12.6; 
+NETWORK
+TITLE =
+
+      A     I     13.0; 
+      L     S5T#150MS; 
+      SD    T     67; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     67; 
+      =     Q     13.2; F
+NETWORK
+TITLE =
+
+      A     I     14.2; 
+      =     Q     12.3; 
+NETWORK
+TITLE =
+
+      ON    T     78; 
+      ON    T     79; 
+      =     M    210.3; 
+END_FUNCTION
+
+FUNCTION FC 3 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     M      4.0; 
+      A     I     16.2; 
+      AN    M      4.7; 
+      O     M     92.2; 
+      )     ; 
+      A     I      5.5; 
+      A     I     18.4; 
+      A     I     17.6; 
+      =     M    300.0; 
+NETWORK
+TITLE =
+
+      O     M    300.0; 
+      O     M    301.0; 
+      =     Q     37.0; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      A     M      1.1; 
+      O     M    301.0; 
+      O     M      1.0; 
+      =     Q     15.4; 
+NETWORK
+TITLE =
+
+      A     Q     15.4; 
+      A     M      4.1; 
+      =     Q    132.3; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      A     M     22.0; 
+      S     M    301.0; 
+      A     M    300.0; 
+      A     M     22.1; 
+      R     M    301.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     19.7; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     16.2; 
+NETWORK
+TITLE =
+
+      AN    I     20.0; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     16.3; 
+NETWORK
+TITLE =
+
+      AN    I     17.5; 
+      =     M    310.2; 
+NETWORK
+TITLE =
+
+      A     M    310.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     15.6; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      A     I     16.6; 
+      L     S5T#150MS; 
+      SD    T     90; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     90; 
+      )     ; 
+      O     M      1.0; 
+      =     Q     15.3; 
+NETWORK
+TITLE =
+
+      A     T     90; 
+      =     Q     16.7; 
+NETWORK
+TITLE =
+
+      ON    I     19.4; 
+      O     M      1.0; 
+      =     Q     15.0; 
+NETWORK
+TITLE =
+
+      A     I     19.5; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     16.4; 
+NETWORK
+TITLE =
+
+      ON    I     20.2; 
+      O     M      1.0; 
+      =     Q     16.0; 
+NETWORK
+TITLE =
+
+      ON    I     20.1; 
+      O     M      1.0; 
+      =     Q     15.7; 
+NETWORK
+TITLE =
+
+      AN    I     19.3; 
+      =     M    332.1; 
+NETWORK
+TITLE =
+
+      A     M    332.1; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     15.5; 
+NETWORK
+TITLE =
+
+      O     I     19.6; 
+      O     M      1.0; 
+      =     Q     16.1; 
+NETWORK
+TITLE =
+
+      A     I     17.6; 
+      =     Q     18.0; 
+NETWORK
+TITLE =
+
+      A     I     17.7; 
+      =     Q     17.1; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.0; 
+      =     Q     37.5; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.1; 
+      =     Q     37.6; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.3; 
+      =     Q     37.2; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.2; 
+      =     Q     37.1; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.4; 
+      =     Q     37.3; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.5; 
+      =     Q     37.4; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.6; 
+      =     Q     38.1; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      AN    M    301.0; 
+      A(    ; 
+      ON    M    310.3; 
+      O     M    340.0; 
+      )     ; 
+      A     M     20.7; 
+      AN    T     90; 
+      A     I     18.4; 
+      =     Q     38.0; 
+NETWORK
+TITLE =
+
+      O     Q     37.5; 
+      O     Q     37.6; 
+      O     Q     37.2; 
+      O     Q     37.1; 
+      O     Q     37.3; 
+      O     Q     37.4; 
+      =     Q     37.7; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I     16.5; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   521 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    320.0,
+           OUT4                     := Q     15.2);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     16.5; 
+      =     Q     18.6; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I     16.3; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   522 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    321.0,
+           OUT4                     := Q     15.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     16.3; 
+      =     Q     17.7; 
+NETWORK
+TITLE =
+
+      AN    I     16.4; 
+      =     Q     17.2; 
+NETWORK
+TITLE =
+
+      A     I     18.3; 
+      =     Q     18.4; 
+NETWORK
+TITLE =
+
+      A     I     18.0; 
+      =     M    340.0; 
+NETWORK
+TITLE =
+
+      A     M    340.0; 
+      =     Q     17.0; 
+NETWORK
+TITLE =
+
+      A     I     18.2; 
+      =     Q     18.3; 
+NETWORK
+TITLE =
+
+      A     I     18.1; 
+      =     Q     18.5; 
+NETWORK
+TITLE =
+
+      A     I     19.0; 
+      A     I     19.2; 
+      A     I     18.5; 
+      =     Q     38.3; 
+NETWORK
+TITLE =
+
+      A     I     19.1; 
+      A     I     19.2; 
+      A     I     18.5; 
+      =     Q     38.2; 
+NETWORK
+TITLE =
+
+      A     I     19.2; 
+      A     I     18.5; 
+      =     Q     38.4; 
+NETWORK
+TITLE =
+
+      A     I     17.0; 
+      L     S5T#150MS; 
+      SD    T     98; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     98; 
+      =     Q     17.5; 
+NETWORK
+TITLE =
+
+      A     I     17.2; 
+      L     S5T#150MS; 
+      SD    T     83; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     83; 
+      =     Q     16.6; 
+NETWORK
+TITLE =
+
+      A     I     17.4; 
+      L     S5T#150MS; 
+      SD    T     84; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     84; 
+      =     Q     18.1; 
+NETWORK
+TITLE =
+
+      A     I     16.7; 
+      L     S5T#150MS; 
+      SD    T     99; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     99; 
+      =     Q     17.4; 
+NETWORK
+TITLE =
+
+      A     I     17.1; 
+      L     S5T#150MS; 
+      SD    T     86; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     86; 
+      =     Q     17.6; 
+NETWORK
+TITLE =
+
+      A     I     17.3; 
+      L     S5T#150MS; 
+      SD    T     87; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     87; 
+      =     Q     18.2; 
+NETWORK
+TITLE =
+
+      A     I     18.5; 
+      =     Q     17.3; 
+NETWORK
+TITLE =
+
+      ON    T     98; 
+      ON    T     99; 
+      =     M    310.3; 
+END_FUNCTION
+
+FUNCTION FC 4 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      A(    ; 
+      A     M      4.0; 
+      A     I     20.5; 
+      AN    M      4.7; 
+      O     M     92.3; 
+      )     ; 
+      A     I      5.5; 
+      A     I     22.7; 
+      A     I     22.1; 
+      =     M    400.0; 
+NETWORK
+TITLE =
+
+      O     M    400.0; 
+      O     M    401.0; 
+      =     Q     39.0; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      A     M      1.1; 
+      O     M    401.0; 
+      O     M      1.0; 
+      =     Q     20.4; 
+NETWORK
+TITLE =
+
+      A     Q     20.4; 
+      A     M      4.1; 
+      =     Q    132.4; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      A     M     22.0; 
+      S     M    401.0; 
+      A     M    400.0; 
+      A     M     22.1; 
+      R     M    401.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     24.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     21.2; 
+NETWORK
+TITLE =
+
+      AN    I     24.3; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     21.3; 
+NETWORK
+TITLE =
+
+      AN    I     22.0; 
+      =     M    410.2; 
+NETWORK
+TITLE =
+
+      A     M    410.2; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     20.6; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      A     I     21.1; 
+      L     S5T#150MS; 
+      SD    T    110; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    110; 
+      )     ; 
+      O     M      1.0; 
+      =     Q     20.3; 
+NETWORK
+TITLE =
+
+      A     T    110; 
+      =     Q     21.7; 
+NETWORK
+TITLE =
+
+      ON    I     23.7; 
+      O     M      1.0; 
+      =     Q     20.0; 
+NETWORK
+TITLE =
+
+      A     I     24.0; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     21.4; 
+NETWORK
+TITLE =
+
+      ON    I     24.5; 
+      O     M      1.0; 
+      =     Q     21.0; 
+NETWORK
+TITLE =
+
+      ON    I     24.4; 
+      O     M      1.0; 
+      =     Q     20.7; 
+NETWORK
+TITLE =
+
+      AN    I     23.6; 
+      =     M    432.1; 
+NETWORK
+TITLE =
+
+      A     M    432.1; 
+      A     M      1.1; 
+      O     M      1.0; 
+      =     Q     20.5; 
+NETWORK
+TITLE =
+
+      O     I     24.1; 
+      O     M      1.0; 
+      =     Q     21.1; 
+NETWORK
+TITLE =
+
+      A     I     22.1; 
+      =     Q     23.0; 
+NETWORK
+TITLE =
+
+      A     I     22.2; 
+      =     Q     22.1; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.0; 
+      =     Q     39.5; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.1; 
+      =     Q     39.6; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.3; 
+      =     Q     39.2; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.2; 
+      =     Q     39.1; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.4; 
+      =     Q     39.3; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.5; 
+      =     Q     39.4; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.6; 
+      =     Q     40.1; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      AN    M    401.0; 
+      A(    ; 
+      ON    M    410.3; 
+      O     M    440.0; 
+      )     ; 
+      A     M     20.7; 
+      AN    T    110; 
+      A     I     22.7; 
+      =     Q     40.0; 
+NETWORK
+TITLE =
+
+      O     Q     39.5; 
+      O     Q     39.6; 
+      O     Q     39.2; 
+      O     Q     39.1; 
+      O     Q     39.3; 
+      O     Q     39.4; 
+      =     Q     39.7; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I     21.0; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   523 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    420.0,
+           OUT4                     := Q     20.2);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     21.0; 
+      =     Q     23.6; 
+NETWORK
+TITLE =
+
+      A     I      2.7; 
+      =     L      0.0; 
+      BLD   103; 
+      A     I      6.4; 
+      =     L      0.1; 
+      BLD   103; 
+      AN    I     20.6; 
+      =     L      0.2; 
+      BLD   103; 
+      CALL FB   500 , DB   524 (
+           IN0                      := L      0.0,
+           IN1                      := L      0.1,
+           IN2                      := L      0.2,
+           OUT3                     := M    421.0,
+           OUT4                     := Q     20.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     I     20.6; 
+      =     Q     22.7; 
+NETWORK
+TITLE =
+
+      AN    I     20.7; 
+      =     Q     22.2; 
+NETWORK
+TITLE =
+
+      A     I     22.6; 
+      =     Q     23.4; 
+NETWORK
+TITLE =
+
+      A     I     22.3; 
+      =     M    440.0; 
+NETWORK
+TITLE =
+
+      A     M    440.0; 
+      =     Q     22.0; 
+NETWORK
+TITLE =
+
+      A     I     22.5; 
+      =     Q     23.3; 
+NETWORK
+TITLE =
+
+      A     I     22.4; 
+      =     Q     23.5; 
+NETWORK
+TITLE =
+
+      A     I     23.3; 
+      A     I     23.5; 
+      A     I     23.0; 
+      =     Q     40.3; 
+NETWORK
+TITLE =
+
+      A     I     23.4; 
+      A     I     23.5; 
+      A     I     23.0; 
+      =     Q     40.2; 
+NETWORK
+TITLE =
+
+      A     I     23.5; 
+      A     I     23.0; 
+      =     Q     40.4; 
+NETWORK
+TITLE =
+
+      A     I     21.3; 
+      L     S5T#150MS; 
+      SD    T    118; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    118; 
+      =     Q     22.5; 
+NETWORK
+TITLE =
+
+      A     I     21.5; 
+      L     S5T#150MS; 
+      SD    T    103; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    103; 
+      =     Q     21.6; 
+NETWORK
+TITLE =
+
+      A     I     21.7; 
+      L     S5T#150MS; 
+      SD    T    104; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    104; 
+      =     Q     23.1; 
+NETWORK
+TITLE =
+
+      A     I     21.2; 
+      L     S5T#150MS; 
+      SD    T    119; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    119; 
+      =     Q     22.4; 
+NETWORK
+TITLE =
+
+      A     I     21.4; 
+      L     S5T#150MS; 
+      SD    T    106; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    106; 
+      =     Q     22.6; 
+NETWORK
+TITLE =
+
+      A     I     21.6; 
+      L     S5T#150MS; 
+      SD    T    107; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T    107; 
+      =     Q     23.2; 
+NETWORK
+TITLE =
+
+      A     I     23.0; 
+      =     Q     22.3; 
+NETWORK
+TITLE =
+
+      ON    T    118; 
+      ON    T    119; 
+      =     M    410.3; 
+END_FUNCTION
+
+FUNCTION FC 11 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      A     I    130.0; 
+      AN    I    130.1; 
+      AN    I    130.2; 
+      AN    I    130.3; 
+      =     M     91.0; 
+NETWORK
+TITLE =
+
+      A     M      4.0; 
+      A     I      6.4; 
+      R     M      4.7; 
+      A(    ; 
+      O     M     92.0; 
+      O     M     92.1; 
+      O     M     92.2; 
+      O     M     92.3; 
+      )     ; 
+      AN    M     91.0; 
+      AN    M      4.0; 
+      S     M      4.7; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      L     IB   131; 
+      T     QB   131; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      AN    M      4.1; 
+      JNB   M001; 
+      L     0; 
+      T     MW    96; 
+M001: NOP   0; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      =     L      0.0; 
+      A     L      0.0; 
+      JNB   M002; 
+      L     0; 
+      T     MW    96; 
+M002: NOP   0; 
+      A     L      0.0; 
+      A     I    132.0; 
+      =     M     97.0; 
+      A     L      0.0; 
+      A     I    132.1; 
+      =     M     97.1; 
+      A     L      0.0; 
+      A     I    132.2; 
+      =     M     97.2; 
+      A     L      0.0; 
+      A     I    132.3; 
+      =     M     97.3; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      A(    ; 
+      L     MW    96; 
+      L     5; 
+      ==I   ; 
+      )     ; 
+      =     M     93.0; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      A(    ; 
+      L     MW    96; 
+      L     2; 
+      ==I   ; 
+      )     ; 
+      =     M     93.1; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      A(    ; 
+      L     MW    96; 
+      L     3; 
+      ==I   ; 
+      )     ; 
+      =     M     93.2; 
+NETWORK
+TITLE =
+
+      A     M      4.1; 
+      A(    ; 
+      L     MW    96; 
+      L     4; 
+      ==I   ; 
+      )     ; 
+      =     M     93.3; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      AN    M     93.0; 
+      O     ; 
+      AN    M      4.7; 
+      A     M      4.0; 
+      AN    I      7.4; 
+      )     ; 
+      R     M     92.0; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      A     M     93.0; 
+      S     M     92.0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      AN    M     93.1; 
+      O     ; 
+      AN    M      4.7; 
+      A     M      4.0; 
+      AN    I     11.7; 
+      )     ; 
+      R     M     92.1; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      A     M     93.1; 
+      S     M     92.1; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      AN    M     93.2; 
+      O     ; 
+      AN    M      4.7; 
+      A     M      4.0; 
+      AN    I     16.2; 
+      )     ; 
+      R     M     92.2; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      A     M     93.2; 
+      S     M     92.2; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      AN    M     93.3; 
+      O     ; 
+      AN    M      4.7; 
+      A     M      4.0; 
+      AN    I     20.5; 
+      )     ; 
+      R     M     92.3; 
+      AN    M      4.7; 
+      A     M      4.1; 
+      A     M     93.3; 
+      S     M     92.3; 
+      NOP   0; 
+END_FUNCTION
+
+FUNCTION FC 13 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      A     I      6.4; 
+      =     Q    160.0; 
+NETWORK
+TITLE =
+
+      A     M      1.0; 
+      =     Q    160.1; 
+NETWORK
+TITLE =
+
+      A     I      3.3; 
+      =     Q    168.0; 
+NETWORK
+TITLE =
+
+      A     M     15.0; 
+      =     Q    168.1; 
+NETWORK
+TITLE =
+
+      A     I      3.4; 
+      =     Q    168.2; 
+NETWORK
+TITLE =
+
+      A     M     15.1; 
+      =     Q    168.3; 
+NETWORK
+TITLE =
+
+      A     M     50.0; 
+      =     Q    168.4; 
+NETWORK
+TITLE =
+
+      A     M     15.4; 
+      =     Q    168.5; 
+NETWORK
+TITLE =
+
+      A     M     15.3; 
+      =     Q    168.6; 
+NETWORK
+TITLE =
+
+      A     M     15.5; 
+      =     Q    168.7; 
+NETWORK
+TITLE =
+
+      A     M     19.1; 
+      =     Q    169.0; 
+NETWORK
+TITLE =
+
+      A     I      5.0; 
+      =     Q    169.3; 
+NETWORK
+TITLE =
+
+      A     I      4.1; 
+      A     M     91.0; 
+      AN    M      4.7; 
+      =     Q    169.4; 
+NETWORK
+TITLE =
+
+      A     M      4.0; 
+      =     Q    169.6; 
+NETWORK
+TITLE =
+
+      A     Q     32.1; 
+      =     Q    169.7; 
+NETWORK
+TITLE =
+
+      AN    I      3.1; 
+      L     S5T#2S; 
+      SF    T     26; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     26; 
+      =     Q    170.0; 
+NETWORK
+TITLE =
+
+      AN    I      5.1; 
+      L     S5T#2S; 
+      SF    T     28; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     28; 
+      =     Q    170.1; 
+NETWORK
+TITLE =
+
+      AN    I      3.2; 
+      L     S5T#2S; 
+      SF    T     27; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     27; 
+      =     Q    170.2; 
+NETWORK
+TITLE =
+
+      AN    I      5.4; 
+      L     S5T#2S; 
+      SF    T     29; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      A     T     29; 
+      =     Q    170.3; 
+NETWORK
+TITLE =
+
+      A     M     15.2; 
+      =     Q    170.5; 
+NETWORK
+TITLE =
+
+      A     M     19.2; 
+      =     Q    170.6; 
+NETWORK
+TITLE =
+
+      A     I    160.7; 
+      =     Q    171.0; 
+NETWORK
+TITLE =
+
+      A     I    160.0; 
+      =     Q    171.1; 
+NETWORK
+TITLE =
+
+      A     M    100.0; 
+      =     Q    161.0; 
+NETWORK
+TITLE =
+
+      A     I      9.1; 
+      =     Q    161.1; 
+NETWORK
+TITLE =
+
+      A     T     50; 
+      =     Q    172.1; 
+NETWORK
+TITLE =
+
+      A     M    121.0; 
+      =     Q    172.6; 
+NETWORK
+TITLE =
+
+      A     I    161.0; 
+      =     Q    172.7; 
+NETWORK
+TITLE =
+
+      A     M    110.3; 
+      =     Q    173.0; 
+NETWORK
+TITLE =
+
+      A     I    161.1; 
+      =     Q    173.1; 
+NETWORK
+TITLE =
+
+      AN    Q      7.6; 
+      =     Q    173.2; 
+NETWORK
+TITLE =
+
+      AN    Q      6.6; 
+      =     Q    173.3; 
+NETWORK
+TITLE =
+
+      A     I    161.2; 
+      =     Q    173.4; 
+NETWORK
+TITLE =
+
+      AN    Q      8.2; 
+      =     Q    173.5; 
+NETWORK
+TITLE =
+
+      AN    Q      8.1; 
+      =     Q    173.6; 
+NETWORK
+TITLE =
+
+      A     M    101.0; 
+      =     Q    173.7; 
+NETWORK
+TITLE =
+
+      A     M    200.0; 
+      =     Q    162.0; 
+NETWORK
+TITLE =
+
+      A     I     13.4; 
+      =     Q    162.1; 
+NETWORK
+TITLE =
+
+      A     T     70; 
+      =     Q    175.1; 
+NETWORK
+TITLE =
+
+      A     M    221.0; 
+      =     Q    175.6; 
+NETWORK
+TITLE =
+
+      A     I    162.0; 
+      =     Q    175.7; 
+NETWORK
+TITLE =
+
+      A     M    210.3; 
+      =     Q    176.0; 
+NETWORK
+TITLE =
+
+      A     I    162.1; 
+      =     Q    176.1; 
+NETWORK
+TITLE =
+
+      AN    Q     12.6; 
+      =     Q    176.2; 
+NETWORK
+TITLE =
+
+      AN    Q     11.6; 
+      =     Q    176.3; 
+NETWORK
+TITLE =
+
+      A     I    162.2; 
+      =     Q    176.4; 
+NETWORK
+TITLE =
+
+      AN    Q     13.2; 
+      =     Q    176.5; 
+NETWORK
+TITLE =
+
+      AN    Q     13.1; 
+      =     Q    176.6; 
+NETWORK
+TITLE =
+
+      A     M    201.0; 
+      =     Q    176.7; 
+NETWORK
+TITLE =
+
+      A     M    300.0; 
+      =     Q    163.0; 
+NETWORK
+TITLE =
+
+      A     I     17.7; 
+      =     Q    163.1; 
+NETWORK
+TITLE =
+
+      A     T     90; 
+      =     Q    178.1; 
+NETWORK
+TITLE =
+
+      A     M    321.0; 
+      =     Q    178.6; 
+NETWORK
+TITLE =
+
+      A     I    163.0; 
+      =     Q    178.7; 
+NETWORK
+TITLE =
+
+      A     M    310.3; 
+      =     Q    179.0; 
+NETWORK
+TITLE =
+
+      A     I    163.1; 
+      =     Q    179.1; 
+NETWORK
+TITLE =
+
+      AN    Q     17.6; 
+      =     Q    179.2; 
+NETWORK
+TITLE =
+
+      AN    Q     16.6; 
+      =     Q    179.3; 
+NETWORK
+TITLE =
+
+      A     I    163.2; 
+      =     Q    179.4; 
+NETWORK
+TITLE =
+
+      AN    Q     18.2; 
+      =     Q    179.5; 
+NETWORK
+TITLE =
+
+      AN    Q     18.1; 
+      =     Q    179.6; 
+NETWORK
+TITLE =
+
+      A     M    301.0; 
+      =     Q    179.7; 
+NETWORK
+TITLE =
+
+      A     M    400.0; 
+      =     Q    164.0; 
+NETWORK
+TITLE =
+
+      A     I     22.2; 
+      =     Q    164.1; 
+NETWORK
+TITLE =
+
+      A     T    110; 
+      =     Q    181.1; 
+NETWORK
+TITLE =
+
+      A     M    421.0; 
+      =     Q    181.6; 
+NETWORK
+TITLE =
+
+      A     I    164.0; 
+      =     Q    181.7; 
+NETWORK
+TITLE =
+
+      A     M    410.3; 
+      =     Q    182.0; 
+NETWORK
+TITLE =
+
+      A     I    164.1; 
+      =     Q    182.1; 
+NETWORK
+TITLE =
+
+      AN    Q     22.6; 
+      =     Q    182.2; 
+NETWORK
+TITLE =
+
+      AN    Q     21.6; 
+      =     Q    182.3; 
+NETWORK
+TITLE =
+
+      A     I    164.2; 
+      =     Q    182.4; 
+NETWORK
+TITLE =
+
+      AN    Q     23.2; 
+      =     Q    182.5; 
+NETWORK
+TITLE =
+
+      AN    Q     23.1; 
+      =     Q    182.6; 
+NETWORK
+TITLE =
+
+      A     M    401.0; 
+      =     Q    182.7; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      L     DB50.DBD    0; 
+      T     QD   200; 
+      SET   ; 
+      SAVE  ; 
+      CLR   ; 
+      A     BR; 
+      )     ; 
+      JNB   M001; 
+      L     DB50.DBD    4; 
+      T     QD   204; 
+M001: NOP   0; 
+END_FUNCTION
+
+FUNCTION FC 100 : VOID
+VERSION : 0.1
+
+BEGIN
+NETWORK
+TITLE =
+
+      L     0; 
+      T     DB101.DBW   22; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     DB101.DBX   20.0; 
+      ON    DB101.DBX   20.0; 
+      =     DB101.DBX   20.0; 
+NETWORK
+TITLE =
+
+      A     DB101.DBX   20.0; 
+      =     L      0.0; 
+      BLD   103; 
+      CALL "RDSYSST" (
+           REQ                      := L      0.0,
+           SZL_ID                   := W#16#71,
+           INDEX                    := DB101.DBW   22,
+           RET_VAL                  := DB101.DBW   24,
+           BUSY                     := DB101.DBX   20.1,
+           SZL_HEADER               := P#DB101.DBX 0.0,
+           DR                       := P#DB101.DBX 4.0 BYTE 16);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     DB101.DBX    6.4; 
+      =     M    900.0; 
+NETWORK
+TITLE =
+
+      A     DB101.DBX    6.5; 
+      =     M    900.1; 
+NETWORK
+TITLE =
+
+      L     0; 
+      T     DB101.DBW  160; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O     DB101.DBX  158.0; 
+      ON    DB101.DBX  158.0; 
+      =     DB101.DBX  158.0; 
+NETWORK
+TITLE =
+
+      A     DB101.DBX  158.0; 
+      =     L      0.0; 
+      BLD   103; 
+      CALL "RDSYSST" (
+           REQ                      := L      0.0,
+           SZL_ID                   := W#16#74,
+           INDEX                    := DB101.DBW  160,
+           RET_VAL                  := DB101.DBW  162,
+           BUSY                     := DB101.DBX  158.1,
+           SZL_HEADER               := P#DB101.DBX 26.0,
+           DR                       := P#DB101.DBX 30.0 BYTE 128);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     DB101.DBX   53.0; 
+      =     M    900.2; 
+NETWORK
+TITLE =
+
+      A     DB101.DBX  113.0; 
+      =     M    900.3; 
+NETWORK
+TITLE =
+
+      L     DB101.DBW   12; 
+      T     MW   902; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      L     MW   902; 
+      L     8; 
+      >=I   ; 
+      )     ; 
+      A(    ; 
+      L     MW   902; 
+      L     11; 
+      <=I   ; 
+      )     ; 
+      =     M    900.4; 
+NETWORK
+TITLE =
+
+      L     DB101.DBW   14; 
+      T     MW   904; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      L     MW   904; 
+      L     8; 
+      >=I   ; 
+      )     ; 
+      A(    ; 
+      L     MW   904; 
+      L     11; 
+      <=I   ; 
+      )     ; 
+      =     M    900.5; 
+NETWORK
+TITLE =
+
+      ON    DB103.DBX    0.0; 
+      O     DB103.DBX    0.0; 
+      =     L      0.0; 
+      A     L      0.0; 
+      BLD   102; 
+      =     DB103.DBX    0.0; 
+      A     L      0.0; 
+      JNB   M001; 
+      L     8183; 
+      T     DB103.DBW    2; 
+M001: NOP   0; 
+NETWORK
+TITLE =
+
+      A     DB103.DBX    0.0; 
+      =     L      0.0; 
+      BLD   103; 
+      CALL "DPNRM_DG" (
+           REQ                      := L      0.0,
+           LADDR                    := DB103.DBW    2,
+           RET_VAL                  := DB103.DBW    4,
+           RECORD                   := P#DB103.DBX 6.0 BYTE 240,
+           BUSY                     := DB103.DBX    0.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      L     DB103.DBB   13; 
+      L     0; 
+      <>I   ; 
+      )     ; 
+      O(    ; 
+      L     DB103.DBB   14; 
+      L     0; 
+      <>I   ; 
+      )     ; 
+      O     DB103.DBX    6.0; 
+      =     DB103.DBX    0.2; 
+NETWORK
+TITLE =
+
+      ON    DB104.DBX    0.0; 
+      O     DB104.DBX    0.0; 
+      =     L      0.0; 
+      A     L      0.0; 
+      BLD   102; 
+      =     DB104.DBX    0.0; 
+      A     L      0.0; 
+      JNB   M002; 
+      L     8181; 
+      T     DB104.DBW    2; 
+M002: NOP   0; 
+NETWORK
+TITLE =
+
+      A     DB104.DBX    0.0; 
+      =     L      0.0; 
+      BLD   103; 
+      CALL "DPNRM_DG" (
+           REQ                      := L      0.0,
+           LADDR                    := DB104.DBW    2,
+           RET_VAL                  := DB104.DBW    4,
+           RECORD                   := P#DB104.DBX 6.0 BYTE 240,
+           BUSY                     := DB104.DBX    0.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      L     DB104.DBB   13; 
+      L     0; 
+      <>I   ; 
+      )     ; 
+      O(    ; 
+      L     DB104.DBB   14; 
+      L     0; 
+      <>I   ; 
+      )     ; 
+      O     DB104.DBX    6.0; 
+      =     DB104.DBX    0.2; 
+NETWORK
+TITLE =
+
+      ON    DB106.DBX    0.0; 
+      O     DB106.DBX    0.0; 
+      =     L      0.0; 
+      A     L      0.0; 
+      BLD   102; 
+      =     DB106.DBX    0.0; 
+      A     L      0.0; 
+      JNB   M003; 
+      L     8179; 
+      T     DB106.DBW    2; 
+M003: NOP   0; 
+NETWORK
+TITLE =
+
+      A     DB106.DBX    0.0; 
+      =     L      0.0; 
+      BLD   103; 
+      CALL "DPNRM_DG" (
+           REQ                      := L      0.0,
+           LADDR                    := DB106.DBW    2,
+           RET_VAL                  := DB106.DBW    4,
+           RECORD                   := P#DB106.DBX 6.0 BYTE 240,
+           BUSY                     := DB106.DBX    0.1);
+      NOP   0; 
+NETWORK
+TITLE =
+
+      O(    ; 
+      L     DB106.DBB   13; 
+      L     0; 
+      <>I   ; 
+      )     ; 
+      O(    ; 
+      L     DB106.DBB   14; 
+      L     0; 
+      <>I   ; 
+      )     ; 
+      O     DB106.DBX    6.0; 
+      =     DB106.DBX    0.2; 
+END_FUNCTION
+
+DATA_BLOCK DB 500
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 501
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 502
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 504
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 505
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 506
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 507
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 508
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 509
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 517
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 518
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 519
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 520
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 521
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 522
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 523
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+DATA_BLOCK DB 524
+VERSION : 0.0
+
+ FB 500
+BEGIN
+   IN0 := FALSE; 
+   IN1 := FALSE; 
+   IN2 := FALSE; 
+   OUT3 := FALSE; 
+   OUT4 := FALSE; 
+   STAT5 := FALSE; 
+   STAT6 := FALSE; 
+   STAT7 := FALSE; 
+   STAT8 := FALSE; 
+END_DATA_BLOCK
+
+ORGANIZATION_BLOCK OB 1
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : INT ;	
+  TEMP7 : INT ;	
+  TEMP8 : INT ;	
+  TEMP9 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      A     M      2.6; 
+      AN    M      2.6; 
+      =     M      2.6; 
+NETWORK
+TITLE =
+
+      A(    ; 
+      O     T      0; 
+      ON    T      0; 
+      )     ; 
+      L     S5T#3S; 
+      SD    T      0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+      NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M001; 
+      CALL FC     0 ;
+M001: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M002; 
+      CALL FC     1 ;
+M002: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M003; 
+      CALL FC     2 ;
+M003: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M004; 
+      CALL FC     3 ;
+M004: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M005; 
+      CALL FC     4 ;
+M005: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M006; 
+      CALL FC    11 ;
+M006: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M007; 
+      CALL FC    13 ;
+M007: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M008; 
+      CALL FC   100 ;
+M008: NOP   0; 
+NETWORK
+TITLE =
+
+      A     T      0; 
+      JNB   M009; 
+      CALL "READ_CLK" (
+           RET_VAL                  := DB50.DBW   16,
+           CDT                      := P#DB50.DBX 0.0);
+M009: NOP   0; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 35
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : INT ;	
+  TEMP8 : INT ;	
+  TEMP9 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 70
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : WORD ;	
+  TEMP5 : WORD ;	
+  TEMP6 : WORD ;	
+  TEMP7 : WORD ;	
+  TEMP8 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 72
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : WORD ;	
+  TEMP5 : WORD ;	
+  TEMP6 : WORD ;	
+  TEMP7 : WORD ;	
+  TEMP8 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      A     M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 81
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : BYTE ;	
+  TEMP8 : BYTE ;	
+  TEMP9 : BYTE ;	
+  TEMP10 : BYTE ;	
+  TEMP11 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 82
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : BOOL ;	
+  TEMP8 : BOOL ;	
+  TEMP9 : BOOL ;	
+  TEMP10 : BOOL ;	
+  TEMP11 : BOOL ;	
+  TEMP12 : BOOL ;	
+  TEMP13 : BOOL ;	
+  TEMP14 : BOOL ;	
+  TEMP15 : BYTE ;	
+  TEMP16 : BOOL ;	
+  TEMP17 : BOOL ;	
+  TEMP18 : BOOL ;	
+  TEMP19 : BOOL ;	
+  TEMP20 : BOOL ;	
+  TEMP21 : BOOL ;	
+  TEMP22 : BOOL ;	
+  TEMP23 : BOOL ;	
+  TEMP24 : BOOL ;	
+  TEMP25 : BOOL ;	
+  TEMP26 : BOOL ;	
+  TEMP27 : BOOL ;	
+  TEMP28 : BOOL ;	
+  TEMP29 : BOOL ;	
+  TEMP30 : BOOL ;	
+  TEMP31 : BOOL ;	
+  TEMP32 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 83
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : INT ;	
+  TEMP8 : WORD ;	
+  TEMP9 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 85
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : INT ;	
+  TEMP7 : BYTE ;	
+  TEMP8 : BYTE ;	
+  TEMP9 : BYTE ;	
+  TEMP10 : BYTE ;	
+  TEMP11 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 86
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : ARRAY  [0 .. 31 ] OF BOOL ;	
+  TEMP8 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 87
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : DWORD ;	
+  TEMP8 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 100
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : DWORD ;	
+  TEMP8 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+END_ORGANIZATION_BLOCK
+
+ORGANIZATION_BLOCK OB 122
+VERSION : 0.1
+
+
+VAR_TEMP
+  TEMP0 : BYTE ;	
+  TEMP1 : BYTE ;	
+  TEMP2 : BYTE ;	
+  TEMP3 : BYTE ;	
+  TEMP4 : BYTE ;	
+  TEMP5 : BYTE ;	
+  TEMP6 : WORD ;	
+  TEMP7 : WORD ;	
+  TEMP8 : WORD ;	
+  TEMP9 : DATE_AND_TIME ;	
+END_VAR
+BEGIN
+NETWORK
+TITLE =
+
+      AN    M      3.7; 
+      =     M      3.7; 
+END_ORGANIZATION_BLOCK
